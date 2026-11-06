@@ -1,0 +1,27 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Secrets
+.env
+
+# Data and generated artifacts (synthetic, but large and reproducible)
+data/raw/
+data/processed/
+indexes/
+logs/
+.cache/
+
+# Tools
+vendor/
+*.jar
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
