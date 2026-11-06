@@ -1,4 +1,7 @@
-# Direct dependencies, pinned. Python 3.11.
+# Direct dependencies, pinned. Python 3.11. PyTorch comes from its CPU-only index.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# Phase 1: config, ingestion, redaction
 pydantic==2.14.3
 pydantic-settings==2.16.2
 python-dotenv==1.2.4
@@ -8,4 +11,13 @@ presidio-analyzer==2.2.366
 presidio-anonymizer==2.2.366
 spacy==3.8.18
 en_core_web_lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl
+
+# Phase 2: retrieval
+numpy==2.4.6
+rank-bm25==0.2.2
+faiss-cpu==1.15.1
+torch==2.15.0+cpu
+sentence-transformers==6.2.0
+
+# Tests
 pytest==9.2.0

@@ -107,6 +107,12 @@ config.yaml  .env.example  requirements.txt  requirements-eval.txt  Makefile
 - **Passport and licence formats.** Some Synthea passports have 6-7 digits (`X743270X`); the first pattern assumed 8 and the leak scan found 8 leaks. Both patterns now accept 6-9 digits.
 - **Downloads fall back to `curl`.** On this network, Python's TLS connections to GitHub's release-asset host were reset while `curl` (Windows TLS) worked, so the download helper retries and then falls back to `curl`.
 
+## Changes made during Phase 2
+- **Model runtime.** bge-small-en-v1.5 and bge-reranker-base (both MIT) run through `sentence-transformers` on CPU-only PyTorch, pinned to exact Hugging Face revisions in `config.yaml`. The FAISS index is exact (`IndexFlatIP` on unit vectors = cosine); at about 6.5k chunks an approximate index isn't needed.
+- **Filters inside each retriever.** BM25 scores are masked to the allowed chunks, and FAISS searches with an `IDSelectorBatch`, so fusion and re-ranking never see a filtered-out chunk. Date filters match when a chunk's own date range overlaps the requested one.
+- **Measured cost of re-ranking.** Embedding all 6,485 chunks took 422.5 s on this laptop. In `reports/retrieval_comparison.md`, hybrid retrieval has a median latency of 24 ms per query and hybrid + re-rank 3,118 ms (the cross-encoder scores 20 pairs of up to 512 tokens on CPU). If that is too slow for the UI, the re-rank pool can be cut in config.
+- **The 13-query smoke set doesn't separate the modes** (all four find a relevant chunk for 13/13). Choosing between them waits for the Phase 5 golden set.
+
 ## Risks and open items
 - **Free-tier limits:** a full RAGAS pass makes roughly 9 judge calls per question, so 5 configs × about 100 questions comes to several thousand calls. Plan: count the calls first, then spread runs over days, use a smaller subset, or use a cheap paid judge. LLM responses are cached on disk, keyed by the full prompt, so re-runs don't spend quota again.
 - **NeMo Guardrails 0.24.1** no longer lists LangChain as a dependency. Its OpenAI-compatible model connector needs to be verified to work without it.

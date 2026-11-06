@@ -100,3 +100,19 @@ redaction:
   score_threshold: 0.3          # Presidio's phone recognizer scores 0.4 without context
   batch_size: 32
   report_samples: 5
+
+retrieval:
+  index_dir: indexes
+  embedding_model: BAAI/bge-small-en-v1.5          # MIT licence
+  embedding_revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+  # bge v1.5 recommends this prefix on queries (not on passages) for retrieval.
+  query_instruction: "Represent this sentence for searching relevant passages: "
+  rerank_model: BAAI/bge-reranker-base             # MIT licence
+  rerank_revision: 2cfc18c9415c912f9d8155881c133215df768a70
+  embed_batch_size: 64
+  rerank_batch_size: 16
+  max_seq_length: 512
+  candidates_per_retriever: 50   # top-N taken from BM25 and from FAISS before fusion
+  rrf_k: 60                      # reciprocal rank fusion constant
+  rerank_top_n: 20               # fused candidates sent to the cross-encoder
+  final_k: 5                     # chunks returned

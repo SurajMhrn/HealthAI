@@ -129,6 +129,29 @@ class RedactionSettings(BaseModel):
     report_samples: int
 
 
+class RetrievalSettings(BaseModel):
+    """Embedding, fusion and re-ranking options."""
+
+    index_dir: Path
+    embedding_model: str
+    embedding_revision: str
+    query_instruction: str
+    rerank_model: str
+    rerank_revision: str
+    embed_batch_size: int
+    rerank_batch_size: int
+    max_seq_length: int
+    candidates_per_retriever: int
+    rrf_k: int
+    rerank_top_n: int
+    final_k: int
+
+    @field_validator("index_dir")
+    @classmethod
+    def _make_absolute(cls, value: Path) -> Path:
+        return value if value.is_absolute() else PROJECT_ROOT / value
+
+
 class Settings(BaseSettings):
     """All project settings. Use :func:`get_settings` to read them."""
 
@@ -150,6 +173,7 @@ class Settings(BaseSettings):
     guidelines: GuidelineSettings
     pdf: PdfSettings
     redaction: RedactionSettings
+    retrieval: RetrievalSettings
 
     patient_id_salt: SecretStr | None = None
 
