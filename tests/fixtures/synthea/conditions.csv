@@ -1,0 +1,4 @@
+START,STOP,PATIENT,ENCOUNTER,SYSTEM,CODE,DESCRIPTION
+2012-05-04,,3f1c2a9e-5b7d-4e8f-9a01-23456789abcd,0b9a2f44-1d2e-4c3b-9a8f-7e6d5c4b3a21,http://snomed.info/sct,59621000,Essential hypertension (disorder)
+2019-11-02,2019-11-20,3f1c2a9e-5b7d-4e8f-9a01-23456789abcd,1c2d3e4f-5a6b-4c7d-8e9f-0a1b2c3d4e5f,http://snomed.info/sct,10509002,Acute bronchitis (disorder)
+2014-06-10,,8a7b6c5d-4e3f-4a1b-8c9d-0e1f2a3b4c5d,2d3e4f5a-6b7c-4d8e-9f0a-1b2c3d4e5f6a,http://snomed.info/sct,195967001,Asthma (disorder)

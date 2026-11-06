@@ -15,7 +15,7 @@ Evaluation quality is the priority; UI polish is secondary.
 
 | Topic | Decision | Rationale |
 |---|---|---|
-| Runtime | Cloud dev environment (Linux, CPU only). Nothing runs on the laptop | Keeps heavy dependencies, models and data off the local machine |
+| Runtime | Local development on Windows 11, Python 3.11, CPU only. The venv, Synthea jar, spaCy model and data all stay inside the project folder | First planned for a cloud dev environment, which wasn't available. Nothing in the project needs a GPU or a specific OS, and every `make` target also runs as `python -m ...` |
 | Small model | Hosted 7-8B model on an OpenAI-compatible endpoint: Qwen2.5 7B, falling back to Llama 3.1 8B | No local GPU. Ollama stays a config option (`SMALL_BASE_URL`) and appears in docker-compose |
 | Large model + RAGAS judge | Free OpenAI-compatible endpoint (Groq / OpenRouter / GitHub Models), with an Azure OpenAI switch through env vars | The judge comes from a different model family than the large model, to avoid self-preference bias |
 | LangChain | Only as a transitive dependency of RAGAS, in `requirements-eval.txt`. Never imported by project code | RAGAS 0.4.3 requires `langchain*`. Keeps the app and Docker image free of it |
@@ -23,8 +23,8 @@ Evaluation quality is the priority; UI polish is secondary.
 | Embedder and re-ranker | BAAI bge-small-en-v1.5 + bge-reranker-base on CPU | No GPU is needed at this corpus size |
 | Router | Rules, rules + small-model classifier, and a **trained classifier** (logistic regression on embeddings), compared head to head | Adds a real ML training component with a proper train/test split |
 | PDF parsing | `pypdf` (BSD license) | Small and permissive. No OCR, so scanned PDFs won't parse |
-| Synthea | Pinned Synthea release jar, 100 patients, fixed seed, CSV export | Reproducible. Needs Java 17+ |
-| Guideline PDFs | `scripts/get_guidelines.py` downloads a reviewed list of public guideline PDFs (URLs in `config.yaml`) | Reproducible in any environment |
+| Synthea | Two populations, both CSV: (1) a run of the pinned v4.0.0 jar (sha256-checked), `-p 100`, seed 42, fixed reference date; (2) Synthea's pre-generated sample CSVs (111 patients, sha256-pinned archive). `patient_datasets` in config picks either or both | Generated data is reproducible and tunable; the sample set needs no Java and adds a second, independently generated population. Needs Java 17+ for (1) |
+| Guideline PDFs | `scripts/get_guidelines.py` downloads five VA/DoD clinical practice guidelines (hypertension 2026, type 2 diabetes 2023, lipids 2025, COPD 2026, asthma 2025), sha256-pinned in `config.yaml` | U.S. federal works (public domain), text-based PDFs. CDC MMWR refused scripted downloads (403) and WHO IRIS links now serve a JavaScript app |
 | `make eval` | `Makefile`, and every target also runs as `python -m ...` | Works with or without `make` |
 
 ## Layout (target)
@@ -102,9 +102,14 @@ config.yaml  .env.example  requirements.txt  requirements-eval.txt  Makefile
 - Dockerfile + docker-compose (app + optional Ollama).
 - README with the problem, a Mermaid architecture diagram, run steps, the eval summary (real numbers from REPORT.md), and known limitations.
 
+## Changes made during Phase 1
+- **Allow-list for clinical vocabulary.** spaCy tagged condition names (e.g. "Hyperlipidemia") as `PERSON`, and Presidio's phone recognizer matched SNOMED/RxNorm codes. Redaction now skips exact strings taken from Synthea's coded condition, medication and encounter rows. These come from code systems, never from identifiers, and Synthea names always carry digits, so no name can be allow-listed. The leak scan confirms it.
+- **Passport and licence formats.** Some Synthea passports have 6-7 digits (`X743270X`); the first pattern assumed 8 and the leak scan found 8 leaks. Both patterns now accept 6-9 digits.
+- **Downloads fall back to `curl`.** On this network, Python's TLS connections to GitHub's release-asset host were reset while `curl` (Windows TLS) worked, so the download helper retries and then falls back to `curl`.
+
 ## Risks and open items
 - **Free-tier limits:** a full RAGAS pass makes roughly 9 judge calls per question, so 5 configs × about 100 questions comes to several thousand calls. Plan: count the calls first, then spread runs over days, use a smaller subset, or use a cheap paid judge. LLM responses are cached on disk, keyed by the full prompt, so re-runs don't spend quota again.
 - **NeMo Guardrails 0.24.1** no longer lists LangChain as a dependency. Its OpenAI-compatible model connector needs to be verified to work without it.
-- **Docker in the cloud:** the dev environment may not run Docker. If not, the Dockerfile and compose file need a separate test.
+- **Docker:** development is local on Windows; the Dockerfile and compose file need Docker Desktop (or a separate Linux host) to be tested.
 - **Dates:** only dates of birth are redacted. Encounter dates stay, because the date filter needs them. HIPAA Safe Harbor would also require generalizing those dates, and the README states this.
 - **RAGAS API churn:** the API changed between 0.2, 0.3 and 0.4. Pin the version and check the current API before writing the runner.
