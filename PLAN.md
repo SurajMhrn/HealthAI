@@ -113,6 +113,13 @@ config.yaml  .env.example  requirements.txt  requirements-eval.txt  Makefile
 - **Measured cost of re-ranking.** Embedding all 6,485 chunks took 422.5 s on this laptop. In `reports/retrieval_comparison.md`, hybrid retrieval has a median latency of 24 ms per query and hybrid + re-rank 3,118 ms (the cross-encoder scores 20 pairs of up to 512 tokens on CPU). If that is too slow for the UI, the re-rank pool can be cut in config.
 - **The 13-query smoke set doesn't separate the modes** (all four find a relevant chunk for 13/13). Choosing between them waits for the Phase 5 golden set.
 
+## Changes made during Phase 3
+- **Models.** Groq no longer serves Llama 3.1 8B or Qwen2.5 7B, and GitHub Models is unreachable from the development network (requests to `models.github.ai` get a bare `200 OK` from something in between, even without a key). All three roles therefore run on Groq: small `openai/gpt-oss-20b`, large `openai/gpt-oss-120b`, judge `qwen/qwen3.8-27b`. The judge is still a different family from the large model. Any OpenAI-compatible endpoint can be swapped in through `.env` and `config.yaml`.
+- **Reference prices** come from Groq's model docs (2026-11-07): gpt-oss-20b $0.075/$0.30, gpt-oss-120b $0.15/$0.60, qwen3.8-27b $0.80/$4.00 per million input/output tokens.
+- **The query is redacted before anything else happens**, so the retriever, the LLM and the logs only ever see redacted text.
+- **Citation formats.** gpt-oss sometimes cites with full-width brackets (`【id】`). Citations are normalised to `[id]` before they are checked against the retrieved chunks.
+- **Router results** (`reports/router_comparison.md`, n = 98): rules 0.837 accuracy, rules + LLM 0.867, trained 0.643. The trained router reaches 0.984 on its own training data but 0.569 on held-out templates, so it memorises template wording; more varied training questions are needed before it is useful. Rules and rules + LLM have overlapping CIs, so `rules` (free, sub-millisecond) stays the default.
+
 ## Risks and open items
 - **Free-tier limits:** a full RAGAS pass makes roughly 9 judge calls per question, so 5 configs × about 100 questions comes to several thousand calls. Plan: count the calls first, then spread runs over days, use a smaller subset, or use a cheap paid judge. LLM responses are cached on disk, keyed by the full prompt, so re-runs don't spend quota again.
 - **NeMo Guardrails 0.24.1** no longer lists LangChain as a dependency. Its OpenAI-compatible model connector needs to be verified to work without it.

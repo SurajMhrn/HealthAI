@@ -4,6 +4,10 @@
 #   make ingest  ->  python -m healthrag.ingest
 #   make index   ->  python -m scripts.build_index
 #   make compare ->  python -m scripts.compare_retrieval
+#   make router-labels   ->  python -m scripts.make_router_labels
+#   make train-router    ->  python -m scripts.train_router
+#   make compare-routers ->  python -m scripts.compare_routers
+#   make ask Q="..."     ->  python -m healthrag.ask "..."
 #   make test    ->  python -m pytest -q
 
 ifeq ($(OS),Windows_NT)
@@ -12,7 +16,7 @@ else
 PYTHON ?= .venv/bin/python
 endif
 
-.PHONY: venv data ingest index compare test
+.PHONY: venv data ingest index compare router-labels train-router compare-routers ask test
 
 venv:
 	python3.11 -m venv .venv
@@ -31,6 +35,18 @@ index:
 
 compare:
 	$(PYTHON) -m scripts.compare_retrieval
+
+router-labels:
+	$(PYTHON) -m scripts.make_router_labels
+
+train-router:
+	$(PYTHON) -m scripts.train_router
+
+compare-routers:
+	$(PYTHON) -m scripts.compare_routers
+
+ask:
+	$(PYTHON) -m healthrag.ask "$(Q)"
 
 test:
 	$(PYTHON) -m pytest -q

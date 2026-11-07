@@ -19,5 +19,10 @@ faiss-cpu==1.15.1
 torch==2.15.0+cpu
 sentence-transformers==6.2.0
 
+# Phase 3: generation and routing
+openai==3.46.0
+scikit-learn==1.9.1
+joblib==1.6.0
+
 # Tests
 pytest==9.2.0

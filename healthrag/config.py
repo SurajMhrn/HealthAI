@@ -152,6 +152,69 @@ class RetrievalSettings(BaseModel):
         return value if value.is_absolute() else PROJECT_ROOT / value
 
 
+def _absolute(value: Path) -> Path:
+    return value if value.is_absolute() else PROJECT_ROOT / value
+
+
+class Price(BaseModel):
+    """Reference price in USD per million tokens."""
+
+    input: float
+    output: float
+
+
+class LlmSettings(BaseModel):
+    """Model names and request options for the hosted tiers and the judge."""
+
+    small_model: str
+    large_model: str
+    judge_model: str
+    temperature: float
+    max_tokens: int
+    timeout_seconds: int
+    max_retries: int
+    cache_dir: Path
+    extra_params: dict[str, dict[str, str | int | float]] = {}
+    prices: dict[str, Price]
+
+    @field_validator("cache_dir")
+    @classmethod
+    def _make_absolute(cls, value: Path) -> Path:
+        return _absolute(value)
+
+
+class GenerationSettings(BaseModel):
+    """Answer generation options."""
+
+    retrieval_mode: str
+    not_found_answer: str
+    max_context_chars_per_chunk: int
+    telemetry_file: Path
+
+    @field_validator("telemetry_file")
+    @classmethod
+    def _make_absolute(cls, value: Path) -> Path:
+        return _absolute(value)
+
+
+class RouterSettings(BaseModel):
+    """Router choice, training data and rule settings."""
+
+    default: Literal["rules", "rules_llm", "trained"]
+    labels_file: Path
+    model_file: Path
+    seed: int
+    logistic_c: float
+    complex_phrases: list[str]
+    multi_entity_threshold: int
+    clinical_terms: list[str]
+
+    @field_validator("labels_file", "model_file")
+    @classmethod
+    def _make_absolute(cls, value: Path) -> Path:
+        return _absolute(value)
+
+
 class Settings(BaseSettings):
     """All project settings. Use :func:`get_settings` to read them."""
 
@@ -174,8 +237,24 @@ class Settings(BaseSettings):
     pdf: PdfSettings
     redaction: RedactionSettings
     retrieval: RetrievalSettings
+    llm: LlmSettings
+    generation: GenerationSettings
+    router: RouterSettings
 
     patient_id_salt: SecretStr | None = None
+
+    # Endpoints and keys (from .env). Each tier is any OpenAI-compatible endpoint.
+    small_base_url: str | None = None
+    small_api_key: SecretStr | None = None
+    large_provider: Literal["openai_compatible", "azure"] = "openai_compatible"
+    large_base_url: str | None = None
+    large_api_key: SecretStr | None = None
+    judge_base_url: str | None = None
+    judge_api_key: SecretStr | None = None
+    azure_openai_endpoint: str | None = None
+    azure_openai_api_key: SecretStr | None = None
+    azure_openai_api_version: str | None = None
+    azure_openai_deployment: str | None = None
 
     @classmethod
     def settings_customise_sources(

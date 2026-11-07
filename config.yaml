@@ -116,3 +116,49 @@ retrieval:
   rrf_k: 60                      # reciprocal rank fusion constant
   rerank_top_n: 20               # fused candidates sent to the cross-encoder
   final_k: 5                     # chunks returned
+
+# Hosted models (endpoints and keys live in .env). All three run on Groq; see PLAN.md.
+llm:
+  small_model: openai/gpt-oss-20b
+  large_model: openai/gpt-oss-120b
+  judge_model: qwen/qwen3.8-27b        # a different model family from the large tier
+  temperature: 0.0
+  max_tokens: 1024                     # includes the gpt-oss models' reasoning tokens
+  timeout_seconds: 60
+  max_retries: 3
+  cache_dir: .cache/llm                # responses cached on disk, keyed by the full request
+  # Extra request fields per model. gpt-oss models reason before answering; "low" keeps it short.
+  extra_params:
+    openai/gpt-oss-20b: {reasoning_effort: low}
+    openai/gpt-oss-120b: {reasoning_effort: low}
+  # Reference prices in USD per million tokens, from Groq's model docs on 2026-11-07.
+  # Used only for estimated cost; free-tier calls cost $0 actual.
+  prices:
+    openai/gpt-oss-20b: {input: 0.075, output: 0.30}
+    openai/gpt-oss-120b: {input: 0.15, output: 0.60}
+    qwen/qwen3.8-27b: {input: 0.80, output: 4.00}
+
+generation:
+  retrieval_mode: hybrid_rerank
+  not_found_answer: "This is not in the documents."
+  max_context_chars_per_chunk: 1200
+  telemetry_file: logs/queries.jsonl
+
+router:
+  default: rules                       # rules | rules_llm | trained
+  labels_file: eval/router_labels.jsonl
+  model_file: indexes/router.joblib
+  seed: 13
+  logistic_c: 1.0
+  # Rules: any of these words or phrases makes a question "complex".
+  complex_phrases: [summarize, summary, summarise, overview, compare, comparison, versus, " vs ", trend, trends,
+                    over time, changed, history of, all patients, which patients, how many patients, across,
+                    both, timeline, progression, since]
+  multi_entity_threshold: 2            # this many distinct clinical terms also make it complex
+  clinical_terms: [hypertension, blood pressure, diabetes, prediabetes, hba1c, glucose, insulin, metformin,
+                   hyperlipidemia, cholesterol, ldl, statin, lipid, asthma, copd, emphysema, inhaler, spirometry,
+                   bronchitis, sinusitis, pharyngitis, otitis, kidney, ckd, obesity, bmi, anemia, osteoarthritis,
+                   sprain, fracture, pregnancy, contraception, depression, anxiety, covid, influenza, vaccine,
+                   immunization, smoking, tobacco, opioid, pain, hydrochlorothiazide, lisinopril, amlodipine,
+                   atorvastatin, simvastatin, albuterol, fluticasone, budesonide, prednisone, heart failure,
+                   stroke, myocardial infarction, coronary]

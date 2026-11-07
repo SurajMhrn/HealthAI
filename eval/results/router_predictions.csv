@@ -1,0 +1,295 @@
+router,query,source,gold,pred,reason,latency_ms,tokens_in,tokens_out,est_cost_usd
+rules,Why was lisinopril prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: lisinopril,3.58,0,0,0.0
+rules,Why was insulin prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: insulin,0.13,0,0,0.0
+rules,Why was naproxen prescribed?,template:s_reason_med,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,Why was hydrochlorothiazide prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: hydrochlorothiazide,0.12,0,0,0.0
+rules,Why was simvastatin prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: simvastatin,0.11,0,0,0.0
+rules,Why was fluticasone prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: fluticasone,0.13,0,0,0.0
+rules,Why was albuterol prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: albuterol,0.11,0,0,0.0
+rules,Why was amlodipine prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: amlodipine,0.11,0,0,0.0
+rules,Why was metformin prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: metformin,0.11,0,0,0.0
+rules,Why was atorvastatin prescribed?,template:s_reason_med,simple,simple,no complex phrase; term: atorvastatin,0.11,0,0,0.0
+rules,How does the type 2 diabetes guideline define follow-up intervals?,template:s_guideline_def,simple,simple,no complex phrase; term: diabetes,0.15,0,0,0.0
+rules,How does the type 2 diabetes guideline define screening?,template:s_guideline_def,simple,simple,no complex phrase; term: diabetes,0.14,0,0,0.0
+rules,How does the type 2 diabetes guideline define statin intensity?,template:s_guideline_def,simple,complex,"2 clinical terms: diabetes, statin",0.14,0,0,0.0
+rules,How does the hypertension guideline define inhaler technique?,template:s_guideline_def,simple,complex,"2 clinical terms: hypertension, inhaler",0.14,0,0,0.0
+rules,How does the type 2 diabetes guideline define the treatment target?,template:s_guideline_def,simple,simple,no complex phrase; term: diabetes,0.15,0,0,0.0
+rules,How does the COPD guideline define the treatment target?,template:s_guideline_def,simple,simple,no complex phrase; term: copd,0.14,0,0,0.0
+rules,How does the lipid guideline define follow-up intervals?,template:s_guideline_def,simple,simple,no complex phrase; term: lipid,0.14,0,0,0.0
+rules,How does the hypertension guideline define home monitoring?,template:s_guideline_def,simple,simple,no complex phrase; term: hypertension,0.14,0,0,0.0
+rules,How does the lipid guideline define lifestyle changes?,template:s_guideline_def,simple,simple,no complex phrase; term: lipid,0.13,0,0,0.0
+rules,How does the COPD guideline define screening?,template:s_guideline_def,simple,simple,no complex phrase; term: copd,0.12,0,0,0.0
+rules,How does the COPD guideline define first-line drug therapy?,template:s_guideline_def,simple,simple,no complex phrase; term: copd,0.14,0,0,0.0
+rules,How does the COPD guideline define home monitoring?,template:s_guideline_def,simple,simple,no complex phrase; term: copd,0.13,0,0,0.0
+rules,How does the hypertension guideline define when to refer to a specialist?,template:s_guideline_def,simple,simple,no complex phrase; term: hypertension,0.15,0,0,0.0
+rules,How does the asthma guideline define first-line drug therapy?,template:s_guideline_def,simple,simple,no complex phrase; term: asthma,0.14,0,0,0.0
+rules,How does the lipid guideline define inhaler technique?,template:s_guideline_def,simple,complex,"2 clinical terms: lipid, inhaler",0.13,0,0,0.0
+rules,How does the COPD guideline define follow-up intervals?,template:s_guideline_def,simple,simple,no complex phrase; term: copd,0.13,0,0,0.0
+rules,How many patients were prescribed simvastatin for hyperlipidemia?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.15,0,0,0.0
+rules,How many patients were prescribed atorvastatin for type 2 diabetes?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.15,0,0,0.0
+rules,How many patients were prescribed amlodipine for hyperlipidemia?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed amlodipine for viral sinusitis?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed naproxen for hypertension?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed hydrochlorothiazide for type 2 diabetes?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.15,0,0,0.0
+rules,How many patients were prescribed metformin for anemia?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.13,0,0,0.0
+rules,How many patients were prescribed albuterol for osteoarthritis?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed albuterol for asthma?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.13,0,0,0.0
+rules,How many patients were prescribed amlodipine for anemia?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed insulin for obesity?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed fluticasone for anemia?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed hydrochlorothiazide for asthma?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed amlodipine for chronic kidney disease?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.15,0,0,0.0
+rules,How many patients were prescribed albuterol for obesity?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.14,0,0,0.0
+rules,How many patients were prescribed simvastatin for prediabetes?,template:c_count_patients,complex,complex,complex phrase: how many patients,0.17,0,0,0.0
+rules,Build a timeline of the patient's osteoarthritis and hyperlipidemia diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.21,0,0,0.0
+rules,Build a timeline of the patient's viral sinusitis and anemia diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.19,0,0,0.0
+rules,Build a timeline of the patient's type 2 diabetes and viral sinusitis diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.18,0,0,0.0
+rules,Build a timeline of the patient's chronic kidney disease and type 2 diabetes diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.18,0,0,0.0
+rules,Build a timeline of the patient's osteoarthritis and chronic kidney disease diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.18,0,0,0.0
+rules,Build a timeline of the patient's acute bronchitis and prediabetes diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.17,0,0,0.0
+rules,Build a timeline of the patient's obesity and anemia diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.16,0,0,0.0
+rules,Build a timeline of the patient's chronic kidney disease and COPD diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.17,0,0,0.0
+rules,Build a timeline of the patient's viral sinusitis and acute bronchitis diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.18,0,0,0.0
+rules,Build a timeline of the patient's osteoarthritis and obesity diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.17,0,0,0.0
+rules,Build a timeline of the patient's hypertension and acute bronchitis diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.18,0,0,0.0
+rules,Build a timeline of the patient's asthma and chronic kidney disease diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.17,0,0,0.0
+rules,Build a timeline of the patient's anemia and obesity diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.16,0,0,0.0
+rules,Build a timeline of the patient's COPD and hyperlipidemia diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.17,0,0,0.0
+rules,Build a timeline of the patient's obesity and type 2 diabetes diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.17,0,0,0.0
+rules,Build a timeline of the patient's obesity and hypertension diagnoses and medications.,template:c_timeline,complex,complex,complex phrase: timeline,0.16,0,0,0.0
+rules,which blood pressure pill is she on,paraphrase,simple,simple,no complex phrase; term: blood pressure,0.11,0,0,0.0
+rules,is there an inhaler on his med list?,paraphrase,simple,simple,no complex phrase; term: inhaler,0.12,0,0,0.0
+rules,date of the most recent ER trip,paraphrase,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,When did they get diagnosed with high cholesterol?,paraphrase,simple,simple,no complex phrase; term: cholesterol,0.13,0,0,0.0
+rules,what's the metformin dose,paraphrase,simple,simple,no complex phrase; term: metformin,0.1,0,0,0.0
+rules,Is the sinus infection resolved?,paraphrase,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,BP goal per the VA guideline?,paraphrase,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,What A1c should we aim for in an older adult according to the diabetes guideline?,paraphrase,simple,simple,no complex phrase; term: diabetes,0.17,0,0,0.0
+rules,Does the asthma guideline say anything about spacers?,paraphrase,simple,simple,no complex phrase; term: asthma,0.13,0,0,0.0
+rules,Which statin dose does the lipid guideline suggest for primary prevention?,paraphrase,simple,complex,"2 clinical terms: statin, lipid",0.15,0,0,0.0
+rules,How often should spirometry be repeated in COPD?,paraphrase,simple,complex,"2 clinical terms: copd, spirometry",0.13,0,0,0.0
+rules,When was the last flu shot?,paraphrase,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,Is she pregnant according to the record?,paraphrase,simple,simple,no complex phrase,0.12,0,0,0.0
+rules,What allergy is documented?,paraphrase,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,Is lisinopril still being taken?,paraphrase,simple,simple,no complex phrase; term: lisinopril,0.12,0,0,0.0
+rules,What was the reason for the 2021 urgent care visit?,paraphrase,simple,simple,no complex phrase,0.13,0,0,0.0
+rules,Who is the patient's insurer?,paraphrase,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,When was the kidney problem first noted?,paraphrase,simple,simple,no complex phrase; term: kidney,0.12,0,0,0.0
+rules,What does the guideline say the first drug for type 2 diabetes should be?,paraphrase,simple,simple,no complex phrase; term: diabetes,0.16,0,0,0.0
+rules,Is home BP monitoring recommended?,paraphrase,simple,simple,no complex phrase,0.11,0,0,0.0
+rules,Walk me through everything that's happened with his heart over the years,paraphrase,complex,simple,no complex phrase,0.15,0,0,0.0
+rules,give me a quick rundown of this patient,paraphrase,complex,simple,no complex phrase,0.12,0,0,0.0
+rules,how did her sugar control evolve after starting metformin,paraphrase,complex,simple,no complex phrase; term: metformin,0.14,0,0,0.0
+rules,Are there differences between how the asthma and COPD guidelines handle inhaled steroids?,paraphrase,complex,complex,"2 clinical terms: asthma, copd",0.17,0,0,0.0
+rules,List every patient on a statin who also has diabetes,paraphrase,complex,complex,"2 clinical terms: diabetes, statin",0.13,0,0,0.0
+rules,"Is this patient's blood pressure regimen consistent with what the VA recommends, and if not, what differs?",paraphrase,complex,simple,no complex phrase; term: blood pressure,0.19,0,0,0.0
+rules,What were all the reasons for ER visits in the last five years?,paraphrase,complex,simple,no complex phrase,0.15,0,0,0.0
+rules,Put together the patient's medication changes in order,paraphrase,complex,simple,no complex phrase,0.14,0,0,0.0
+rules,"Across our population, what is the most common chronic condition?",paraphrase,complex,complex,complex phrase: across,0.14,0,0,0.0
+rules,Explain how her lung disease and her weight problems interact in the record,paraphrase,complex,simple,no complex phrase,0.16,0,0,0.0
+rules,"Has anything in the care plan changed since the diabetes diagnosis, and why?",paraphrase,complex,complex,"complex phrase: changed, since",0.16,0,0,0.0
+rules,What do the lipid and hypertension guidelines both say about lifestyle?,paraphrase,complex,complex,complex phrase: both,0.15,0,0,0.0
+rules,Recap the hospital stays and what led to each,paraphrase,complex,simple,no complex phrase,0.13,0,0,0.0
+rules,"Pull together the respiratory history: diagnoses, inhalers, and urgent visits",paraphrase,complex,simple,no complex phrase,0.16,0,0,0.0
+rules,Is the patient getting better or worse based on the recent encounters?,paraphrase,complex,simple,no complex phrase,0.15,0,0,0.0
+rules,"For patients with CKD, which blood pressure drugs show up most?",paraphrase,complex,complex,"2 clinical terms: blood pressure, ckd",0.14,0,0,0.0
+rules,Contrast the treatment targets for older versus younger adults in the diabetes guideline,paraphrase,complex,complex,complex phrase: versus,0.17,0,0,0.0
+rules,Describe the progression of his kidney function and related prescriptions,paraphrase,complex,complex,complex phrase: progression,0.16,0,0,0.0
+rules,Tell me what's changed in this patient's chart over the past decade,paraphrase,complex,complex,complex phrase: changed,0.16,0,0,0.0
+rules,Which of my diabetic patients aren't on metformin?,paraphrase,complex,simple,no complex phrase; term: metformin,0.15,0,0,0.0
+rules_llm,Why was lisinopril prescribed?,template:s_reason_med,simple,simple,llm: Single indication likely found in one record,355.48,205,88,4.1775e-05
+rules_llm,Why was insulin prescribed?,template:s_reason_med,simple,simple,llm: Single fact: patient has diabetes,379.06,202,88,4.155e-05
+rules_llm,Why was naproxen prescribed?,template:s_reason_med,simple,simple,llm: Single fact: indication for naproxen,487.8,204,81,3.96e-05
+rules_llm,Why was hydrochlorothiazide prescribed?,template:s_reason_med,simple,simple,llm: single indication fact,578.56,205,84,4.0575000000000004e-05
+rules_llm,Why was simvastatin prescribed?,template:s_reason_med,simple,simple,llm: Single fact: indication for simvastatin,525.31,204,82,3.99e-05
+rules_llm,Why was fluticasone prescribed?,template:s_reason_med,simple,complex,llm: Requires clinical context beyond single fact,561.88,205,76,3.8175e-05
+rules_llm,Why was albuterol prescribed?,template:s_reason_med,simple,simple,llm: Single fact answerable from record,548.92,203,90,4.2225e-05
+rules_llm,Why was amlodipine prescribed?,template:s_reason_med,simple,simple,llm: Single fact: indication for amlodipine,537.28,205,94,4.3575e-05
+rules_llm,Why was metformin prescribed?,template:s_reason_med,simple,complex,llm: Requires reasoning about indication and patient context,622.24,203,96,4.4025e-05
+rules_llm,Why was atorvastatin prescribed?,template:s_reason_med,simple,simple,llm: Single prescription reason likely in one record,535.87,204,80,3.93e-05
+rules_llm,How does the type 2 diabetes guideline define follow-up intervals?,template:s_guideline_def,simple,simple,llm: single guideline fact,524.12,210,72,3.734999999999999e-05
+rules_llm,How does the type 2 diabetes guideline define screening?,template:s_guideline_def,simple,complex,"llm: requires guideline definition, multiple facts",429.63,208,62,3.42e-05
+rules_llm,How does the type 2 diabetes guideline define statin intensity?,template:s_guideline_def,simple,complex,"rules: 2 clinical terms: diabetes, statin",0.68,0,0,0.0
+rules_llm,How does the hypertension guideline define inhaler technique?,template:s_guideline_def,simple,complex,"rules: 2 clinical terms: hypertension, inhaler",0.48,0,0,0.0
+rules_llm,How does the type 2 diabetes guideline define the treatment target?,template:s_guideline_def,simple,complex,llm: Requires guideline reference and synthesis,537.03,210,44,2.895e-05
+rules_llm,How does the COPD guideline define the treatment target?,template:s_guideline_def,simple,simple,llm: single guideline fact,455.25,207,45,2.9024999999999997e-05
+rules_llm,How does the lipid guideline define follow-up intervals?,template:s_guideline_def,simple,simple,llm: single guideline fact,577.53,207,70,3.6525e-05
+rules_llm,How does the hypertension guideline define home monitoring?,template:s_guideline_def,simple,simple,llm: single guideline definition,346.59,206,59,3.315e-05
+rules_llm,How does the lipid guideline define lifestyle changes?,template:s_guideline_def,simple,simple,llm: single guideline definition,514.3,206,32,2.5049999999999996e-05
+rules_llm,How does the COPD guideline define screening?,template:s_guideline_def,simple,complex,"llm: requires guideline definition, multiple facts",559.45,205,58,3.2775e-05
+rules_llm,How does the COPD guideline define first-line drug therapy?,template:s_guideline_def,simple,complex,llm: requires guideline synthesis,560.99,208,62,3.42e-05
+rules_llm,How does the COPD guideline define home monitoring?,template:s_guideline_def,simple,complex,"llm: requires guideline definition, multiple facts",230.45,206,63,3.4349999999999995e-05
+rules_llm,How does the hypertension guideline define when to refer to a specialist?,template:s_guideline_def,simple,complex,llm: requires multiple guideline criteria,567.77,210,68,3.615e-05
+rules_llm,How does the asthma guideline define first-line drug therapy?,template:s_guideline_def,simple,simple,llm: single guideline fact,481.72,208,74,3.78e-05
+rules_llm,How does the lipid guideline define inhaler technique?,template:s_guideline_def,simple,complex,"rules: 2 clinical terms: lipid, inhaler",0.18,0,0,0.0
+rules_llm,How does the COPD guideline define follow-up intervals?,template:s_guideline_def,simple,simple,llm: single guideline fact,360.47,207,84,4.0724999999999994e-05
+rules_llm,How many patients were prescribed simvastatin for hyperlipidemia?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.23,0,0,0.0
+rules_llm,How many patients were prescribed atorvastatin for type 2 diabetes?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.18,0,0,0.0
+rules_llm,How many patients were prescribed amlodipine for hyperlipidemia?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.17,0,0,0.0
+rules_llm,How many patients were prescribed amlodipine for viral sinusitis?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.17,0,0,0.0
+rules_llm,How many patients were prescribed naproxen for hypertension?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.16,0,0,0.0
+rules_llm,How many patients were prescribed hydrochlorothiazide for type 2 diabetes?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.18,0,0,0.0
+rules_llm,How many patients were prescribed metformin for anemia?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.15,0,0,0.0
+rules_llm,How many patients were prescribed albuterol for osteoarthritis?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.16,0,0,0.0
+rules_llm,How many patients were prescribed albuterol for asthma?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.14,0,0,0.0
+rules_llm,How many patients were prescribed amlodipine for anemia?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.15,0,0,0.0
+rules_llm,How many patients were prescribed insulin for obesity?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.15,0,0,0.0
+rules_llm,How many patients were prescribed fluticasone for anemia?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.15,0,0,0.0
+rules_llm,How many patients were prescribed hydrochlorothiazide for asthma?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.15,0,0,0.0
+rules_llm,How many patients were prescribed amlodipine for chronic kidney disease?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.15,0,0,0.0
+rules_llm,How many patients were prescribed albuterol for obesity?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.14,0,0,0.0
+rules_llm,How many patients were prescribed simvastatin for prediabetes?,template:c_count_patients,complex,complex,rules: complex phrase: how many patients,0.14,0,0,0.0
+rules_llm,Build a timeline of the patient's osteoarthritis and hyperlipidemia diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.18,0,0,0.0
+rules_llm,Build a timeline of the patient's viral sinusitis and anemia diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.17,0,0,0.0
+rules_llm,Build a timeline of the patient's type 2 diabetes and viral sinusitis diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.18,0,0,0.0
+rules_llm,Build a timeline of the patient's chronic kidney disease and type 2 diabetes diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.18,0,0,0.0
+rules_llm,Build a timeline of the patient's osteoarthritis and chronic kidney disease diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.17,0,0,0.0
+rules_llm,Build a timeline of the patient's acute bronchitis and prediabetes diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.22,0,0,0.0
+rules_llm,Build a timeline of the patient's obesity and anemia diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.34,0,0,0.0
+rules_llm,Build a timeline of the patient's chronic kidney disease and COPD diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.23,0,0,0.0
+rules_llm,Build a timeline of the patient's viral sinusitis and acute bronchitis diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.16,0,0,0.0
+rules_llm,Build a timeline of the patient's osteoarthritis and obesity diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.16,0,0,0.0
+rules_llm,Build a timeline of the patient's hypertension and acute bronchitis diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.16,0,0,0.0
+rules_llm,Build a timeline of the patient's asthma and chronic kidney disease diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.15,0,0,0.0
+rules_llm,Build a timeline of the patient's anemia and obesity diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.14,0,0,0.0
+rules_llm,Build a timeline of the patient's COPD and hyperlipidemia diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.14,0,0,0.0
+rules_llm,Build a timeline of the patient's obesity and type 2 diabetes diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.14,0,0,0.0
+rules_llm,Build a timeline of the patient's obesity and hypertension diagnoses and medications.,template:c_timeline,complex,complex,rules: complex phrase: timeline,0.13,0,0,0.0
+rules_llm,which blood pressure pill is she on,paraphrase,simple,simple,llm: single medication fact,502.09,204,45,2.88e-05
+rules_llm,is there an inhaler on his med list?,paraphrase,simple,simple,llm: single fact check,225.23,207,53,3.1425e-05
+rules_llm,date of the most recent ER trip,paraphrase,simple,simple,llm: single fact from one record,539.69,204,53,3.119999999999999e-05
+rules_llm,When did they get diagnosed with high cholesterol?,paraphrase,simple,simple,llm: Single fact: diagnosis date,323.68,206,53,3.1349999999999996e-05
+rules_llm,what's the metformin dose,paraphrase,simple,simple,llm: single medication dose query,547.67,203,45,2.8725e-05
+rules_llm,Is the sinus infection resolved?,paraphrase,simple,simple,llm: Single fact check,506.21,203,51,3.0524999999999997e-05
+rules_llm,BP goal per the VA guideline?,paraphrase,simple,simple,llm: single guideline fact,493.35,204,53,3.119999999999999e-05
+rules_llm,What A1c should we aim for in an older adult according to the diabetes guideline?,paraphrase,simple,simple,llm: Single guideline fact,2584.91,215,59,3.3825e-05
+rules_llm,Does the asthma guideline say anything about spacers?,paraphrase,simple,simple,llm: single guideline fact,2645.37,207,50,3.0524999999999997e-05
+rules_llm,Which statin dose does the lipid guideline suggest for primary prevention?,paraphrase,simple,complex,"rules: 2 clinical terms: statin, lipid",0.18,0,0,0.0
+rules_llm,How often should spirometry be repeated in COPD?,paraphrase,simple,complex,"rules: 2 clinical terms: copd, spirometry",0.15,0,0,0.0
+rules_llm,When was the last flu shot?,paraphrase,simple,simple,llm: Single fact query,2352.85,204,48,2.9699999999999997e-05
+rules_llm,Is she pregnant according to the record?,paraphrase,simple,simple,llm: Single fact check,2570.6,205,47,2.9475e-05
+rules_llm,What allergy is documented?,paraphrase,simple,simple,llm: Single fact extraction,2565.87,202,36,2.5949999999999997e-05
+rules_llm,Is lisinopril still being taken?,paraphrase,simple,simple,llm: Single medication status query,2754.19,206,70,3.6450000000000005e-05
+rules_llm,What was the reason for the 2021 urgent care visit?,paraphrase,simple,simple,llm: Single fact from one record,2351.92,210,58,3.315e-05
+rules_llm,Who is the patient's insurer?,paraphrase,simple,simple,llm: single fact from patient record,2577.28,203,42,2.7825e-05
+rules_llm,When was the kidney problem first noted?,paraphrase,simple,simple,llm: single date fact,2584.39,205,50,3.0375e-05
+rules_llm,What does the guideline say the first drug for type 2 diabetes should be?,paraphrase,simple,simple,llm: Single guideline fact,2830.61,213,54,3.2174999999999996e-05
+rules_llm,Is home BP monitoring recommended?,paraphrase,simple,simple,llm: Single guideline recommendation,2431.81,203,37,2.6325e-05
+rules_llm,Walk me through everything that's happened with his heart over the years,paraphrase,complex,complex,"llm: requires multi‑document, longitudinal summary",2635.28,209,42,2.8275e-05
+rules_llm,give me a quick rundown of this patient,paraphrase,complex,complex,llm: requires multi-fact summary,2459.23,205,49,3.0075e-05
+rules_llm,how did her sugar control evolve after starting metformin,paraphrase,complex,complex,llm: requires trend analysis over time,3537.09,207,49,3.0225e-05
+rules_llm,Are there differences between how the asthma and COPD guidelines handle inhaled steroids?,paraphrase,complex,complex,"rules: 2 clinical terms: asthma, copd",0.19,0,0,0.0
+rules_llm,List every patient on a statin who also has diabetes,paraphrase,complex,complex,"rules: 2 clinical terms: diabetes, statin",0.13,0,0,0.0
+rules_llm,"Is this patient's blood pressure regimen consistent with what the VA recommends, and if not, what differs?",paraphrase,complex,complex,llm: requires cross-referencing patient data and VA guidelines,2503.08,217,52,3.1875e-05
+rules_llm,What were all the reasons for ER visits in the last five years?,paraphrase,complex,complex,"llm: requires multi-year, multi-visit data",2636.25,211,37,2.6924999999999997e-05
+rules_llm,Put together the patient's medication changes in order,paraphrase,complex,complex,llm: requires timeline synthesis across multiple records,2597.49,205,58,3.2775e-05
+rules_llm,"Across our population, what is the most common chronic condition?",paraphrase,complex,complex,rules: complex phrase: across,0.23,0,0,0.0
+rules_llm,Explain how her lung disease and her weight problems interact in the record,paraphrase,complex,complex,llm: Requires multi-fact reasoning across conditions,2596.02,210,62,3.4349999999999995e-05
+rules_llm,"Has anything in the care plan changed since the diabetes diagnosis, and why?",paraphrase,complex,complex,"rules: complex phrase: changed, since",0.42,0,0,0.0
+rules_llm,What do the lipid and hypertension guidelines both say about lifestyle?,paraphrase,complex,complex,rules: complex phrase: both,0.3,0,0,0.0
+rules_llm,Recap the hospital stays and what led to each,paraphrase,complex,complex,llm: requires multiple records and reasoning,2371.8,207,52,3.1125e-05
+rules_llm,"Pull together the respiratory history: diagnoses, inhalers, and urgent visits",paraphrase,complex,complex,llm: requires aggregation of multiple records,2572.7,211,55,3.2325e-05
+rules_llm,Is the patient getting better or worse based on the recent encounters?,paraphrase,complex,complex,llm: requires trend analysis across multiple encounters,2638.92,210,39,2.745e-05
+rules_llm,"For patients with CKD, which blood pressure drugs show up most?",paraphrase,complex,complex,"rules: 2 clinical terms: blood pressure, ckd",0.23,0,0,0.0
+rules_llm,Contrast the treatment targets for older versus younger adults in the diabetes guideline,paraphrase,complex,complex,rules: complex phrase: versus,0.2,0,0,0.0
+rules_llm,Describe the progression of his kidney function and related prescriptions,paraphrase,complex,complex,rules: complex phrase: progression,0.18,0,0,0.0
+rules_llm,Tell me what's changed in this patient's chart over the past decade,paraphrase,complex,complex,rules: complex phrase: changed,0.2,0,0,0.0
+rules_llm,Which of my diabetic patients aren't on metformin?,paraphrase,complex,complex,llm: requires filtering multiple patient records,2612.26,207,54,3.1725e-05
+trained,Why was lisinopril prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.32,26.04,0,0,0.0
+trained,Why was insulin prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.37,11.94,0,0,0.0
+trained,Why was naproxen prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.31,12.34,0,0,0.0
+trained,Why was hydrochlorothiazide prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.29,10.61,0,0,0.0
+trained,Why was simvastatin prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.32,10.86,0,0,0.0
+trained,Why was fluticasone prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.36,11.76,0,0,0.0
+trained,Why was albuterol prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.36,10.72,0,0,0.0
+trained,Why was amlodipine prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.32,10.5,0,0,0.0
+trained,Why was metformin prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.36,10.57,0,0,0.0
+trained,Why was atorvastatin prescribed?,template:s_reason_med,simple,simple,p(complex) = 0.30,11.66,0,0,0.0
+trained,How does the type 2 diabetes guideline define follow-up intervals?,template:s_guideline_def,simple,complex,p(complex) = 0.51,10.44,0,0,0.0
+trained,How does the type 2 diabetes guideline define screening?,template:s_guideline_def,simple,complex,p(complex) = 0.54,10.43,0,0,0.0
+trained,How does the type 2 diabetes guideline define statin intensity?,template:s_guideline_def,simple,simple,p(complex) = 0.49,11.44,0,0,0.0
+trained,How does the hypertension guideline define inhaler technique?,template:s_guideline_def,simple,complex,p(complex) = 0.54,12.73,0,0,0.0
+trained,How does the type 2 diabetes guideline define the treatment target?,template:s_guideline_def,simple,complex,p(complex) = 0.56,9.74,0,0,0.0
+trained,How does the COPD guideline define the treatment target?,template:s_guideline_def,simple,complex,p(complex) = 0.56,12.2,0,0,0.0
+trained,How does the lipid guideline define follow-up intervals?,template:s_guideline_def,simple,simple,p(complex) = 0.46,10.55,0,0,0.0
+trained,How does the hypertension guideline define home monitoring?,template:s_guideline_def,simple,simple,p(complex) = 0.38,10.18,0,0,0.0
+trained,How does the lipid guideline define lifestyle changes?,template:s_guideline_def,simple,complex,p(complex) = 0.60,9.38,0,0,0.0
+trained,How does the COPD guideline define screening?,template:s_guideline_def,simple,complex,p(complex) = 0.53,10.02,0,0,0.0
+trained,How does the COPD guideline define first-line drug therapy?,template:s_guideline_def,simple,simple,p(complex) = 0.47,10.7,0,0,0.0
+trained,How does the COPD guideline define home monitoring?,template:s_guideline_def,simple,simple,p(complex) = 0.43,9.22,0,0,0.0
+trained,How does the hypertension guideline define when to refer to a specialist?,template:s_guideline_def,simple,simple,p(complex) = 0.45,11.18,0,0,0.0
+trained,How does the asthma guideline define first-line drug therapy?,template:s_guideline_def,simple,simple,p(complex) = 0.49,9.39,0,0,0.0
+trained,How does the lipid guideline define inhaler technique?,template:s_guideline_def,simple,complex,p(complex) = 0.53,11.56,0,0,0.0
+trained,How does the COPD guideline define follow-up intervals?,template:s_guideline_def,simple,complex,p(complex) = 0.52,9.04,0,0,0.0
+trained,How many patients were prescribed simvastatin for hyperlipidemia?,template:c_count_patients,complex,simple,p(complex) = 0.34,10.48,0,0,0.0
+trained,How many patients were prescribed atorvastatin for type 2 diabetes?,template:c_count_patients,complex,simple,p(complex) = 0.39,10.76,0,0,0.0
+trained,How many patients were prescribed amlodipine for hyperlipidemia?,template:c_count_patients,complex,simple,p(complex) = 0.36,13.29,0,0,0.0
+trained,How many patients were prescribed amlodipine for viral sinusitis?,template:c_count_patients,complex,simple,p(complex) = 0.39,8.99,0,0,0.0
+trained,How many patients were prescribed naproxen for hypertension?,template:c_count_patients,complex,simple,p(complex) = 0.35,9.44,0,0,0.0
+trained,How many patients were prescribed hydrochlorothiazide for type 2 diabetes?,template:c_count_patients,complex,simple,p(complex) = 0.38,11.67,0,0,0.0
+trained,How many patients were prescribed metformin for anemia?,template:c_count_patients,complex,simple,p(complex) = 0.46,11.87,0,0,0.0
+trained,How many patients were prescribed albuterol for osteoarthritis?,template:c_count_patients,complex,simple,p(complex) = 0.37,10.2,0,0,0.0
+trained,How many patients were prescribed albuterol for asthma?,template:c_count_patients,complex,simple,p(complex) = 0.42,12.39,0,0,0.0
+trained,How many patients were prescribed amlodipine for anemia?,template:c_count_patients,complex,simple,p(complex) = 0.40,10.24,0,0,0.0
+trained,How many patients were prescribed insulin for obesity?,template:c_count_patients,complex,simple,p(complex) = 0.40,7.84,0,0,0.0
+trained,How many patients were prescribed fluticasone for anemia?,template:c_count_patients,complex,simple,p(complex) = 0.44,11.26,0,0,0.0
+trained,How many patients were prescribed hydrochlorothiazide for asthma?,template:c_count_patients,complex,simple,p(complex) = 0.39,9.65,0,0,0.0
+trained,How many patients were prescribed amlodipine for chronic kidney disease?,template:c_count_patients,complex,simple,p(complex) = 0.35,10.19,0,0,0.0
+trained,How many patients were prescribed albuterol for obesity?,template:c_count_patients,complex,simple,p(complex) = 0.41,10.55,0,0,0.0
+trained,How many patients were prescribed simvastatin for prediabetes?,template:c_count_patients,complex,simple,p(complex) = 0.36,10.51,0,0,0.0
+trained,Build a timeline of the patient's osteoarthritis and hyperlipidemia diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.58,13.1,0,0,0.0
+trained,Build a timeline of the patient's viral sinusitis and anemia diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.59,11.42,0,0,0.0
+trained,Build a timeline of the patient's type 2 diabetes and viral sinusitis diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.62,10.71,0,0,0.0
+trained,Build a timeline of the patient's chronic kidney disease and type 2 diabetes diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.57,10.51,0,0,0.0
+trained,Build a timeline of the patient's osteoarthritis and chronic kidney disease diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.57,12.77,0,0,0.0
+trained,Build a timeline of the patient's acute bronchitis and prediabetes diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.63,10.86,0,0,0.0
+trained,Build a timeline of the patient's obesity and anemia diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.60,10.29,0,0,0.0
+trained,Build a timeline of the patient's chronic kidney disease and COPD diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.60,10.45,0,0,0.0
+trained,Build a timeline of the patient's viral sinusitis and acute bronchitis diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.58,11.77,0,0,0.0
+trained,Build a timeline of the patient's osteoarthritis and obesity diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.59,15.24,0,0,0.0
+trained,Build a timeline of the patient's hypertension and acute bronchitis diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.62,13.18,0,0,0.0
+trained,Build a timeline of the patient's asthma and chronic kidney disease diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.62,79.6,0,0,0.0
+trained,Build a timeline of the patient's anemia and obesity diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.61,11.15,0,0,0.0
+trained,Build a timeline of the patient's COPD and hyperlipidemia diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.61,12.03,0,0,0.0
+trained,Build a timeline of the patient's obesity and type 2 diabetes diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.60,14.11,0,0,0.0
+trained,Build a timeline of the patient's obesity and hypertension diagnoses and medications.,template:c_timeline,complex,complex,p(complex) = 0.59,13.27,0,0,0.0
+trained,which blood pressure pill is she on,paraphrase,simple,simple,p(complex) = 0.28,9.5,0,0,0.0
+trained,is there an inhaler on his med list?,paraphrase,simple,simple,p(complex) = 0.24,10.74,0,0,0.0
+trained,date of the most recent ER trip,paraphrase,simple,simple,p(complex) = 0.32,10.02,0,0,0.0
+trained,When did they get diagnosed with high cholesterol?,paraphrase,simple,simple,p(complex) = 0.39,10.49,0,0,0.0
+trained,what's the metformin dose,paraphrase,simple,simple,p(complex) = 0.31,12.59,0,0,0.0
+trained,Is the sinus infection resolved?,paraphrase,simple,complex,p(complex) = 0.61,9.11,0,0,0.0
+trained,BP goal per the VA guideline?,paraphrase,simple,simple,p(complex) = 0.34,8.76,0,0,0.0
+trained,What A1c should we aim for in an older adult according to the diabetes guideline?,paraphrase,simple,simple,p(complex) = 0.38,10.79,0,0,0.0
+trained,Does the asthma guideline say anything about spacers?,paraphrase,simple,complex,p(complex) = 0.51,10.81,0,0,0.0
+trained,Which statin dose does the lipid guideline suggest for primary prevention?,paraphrase,simple,simple,p(complex) = 0.32,13.63,0,0,0.0
+trained,How often should spirometry be repeated in COPD?,paraphrase,simple,simple,p(complex) = 0.47,10.99,0,0,0.0
+trained,When was the last flu shot?,paraphrase,simple,simple,p(complex) = 0.34,11.61,0,0,0.0
+trained,Is she pregnant according to the record?,paraphrase,simple,simple,p(complex) = 0.23,8.33,0,0,0.0
+trained,What allergy is documented?,paraphrase,simple,complex,p(complex) = 0.53,9.66,0,0,0.0
+trained,Is lisinopril still being taken?,paraphrase,simple,simple,p(complex) = 0.25,9.53,0,0,0.0
+trained,What was the reason for the 2021 urgent care visit?,paraphrase,simple,simple,p(complex) = 0.48,11.28,0,0,0.0
+trained,Who is the patient's insurer?,paraphrase,simple,simple,p(complex) = 0.36,8.75,0,0,0.0
+trained,When was the kidney problem first noted?,paraphrase,simple,simple,p(complex) = 0.44,8.81,0,0,0.0
+trained,What does the guideline say the first drug for type 2 diabetes should be?,paraphrase,simple,simple,p(complex) = 0.29,10.37,0,0,0.0
+trained,Is home BP monitoring recommended?,paraphrase,simple,simple,p(complex) = 0.27,8.6,0,0,0.0
+trained,Walk me through everything that's happened with his heart over the years,paraphrase,complex,complex,p(complex) = 0.59,10.73,0,0,0.0
+trained,give me a quick rundown of this patient,paraphrase,complex,simple,p(complex) = 0.43,12.48,0,0,0.0
+trained,how did her sugar control evolve after starting metformin,paraphrase,complex,complex,p(complex) = 0.55,12.98,0,0,0.0
+trained,Are there differences between how the asthma and COPD guidelines handle inhaled steroids?,paraphrase,complex,complex,p(complex) = 0.73,14.14,0,0,0.0
+trained,List every patient on a statin who also has diabetes,paraphrase,complex,simple,p(complex) = 0.46,11.18,0,0,0.0
+trained,"Is this patient's blood pressure regimen consistent with what the VA recommends, and if not, what differs?",paraphrase,complex,simple,p(complex) = 0.43,11.32,0,0,0.0
+trained,What were all the reasons for ER visits in the last five years?,paraphrase,complex,complex,p(complex) = 0.52,9.88,0,0,0.0
+trained,Put together the patient's medication changes in order,paraphrase,complex,simple,p(complex) = 0.47,9.1,0,0,0.0
+trained,"Across our population, what is the most common chronic condition?",paraphrase,complex,complex,p(complex) = 0.63,9.68,0,0,0.0
+trained,Explain how her lung disease and her weight problems interact in the record,paraphrase,complex,complex,p(complex) = 0.67,10.16,0,0,0.0
+trained,"Has anything in the care plan changed since the diabetes diagnosis, and why?",paraphrase,complex,complex,p(complex) = 0.65,10.41,0,0,0.0
+trained,What do the lipid and hypertension guidelines both say about lifestyle?,paraphrase,complex,complex,p(complex) = 0.64,9.12,0,0,0.0
+trained,Recap the hospital stays and what led to each,paraphrase,complex,complex,p(complex) = 0.64,8.84,0,0,0.0
+trained,"Pull together the respiratory history: diagnoses, inhalers, and urgent visits",paraphrase,complex,complex,p(complex) = 0.62,10.15,0,0,0.0
+trained,Is the patient getting better or worse based on the recent encounters?,paraphrase,complex,complex,p(complex) = 0.66,10.68,0,0,0.0
+trained,"For patients with CKD, which blood pressure drugs show up most?",paraphrase,complex,simple,p(complex) = 0.29,9.29,0,0,0.0
+trained,Contrast the treatment targets for older versus younger adults in the diabetes guideline,paraphrase,complex,complex,p(complex) = 0.64,9.69,0,0,0.0
+trained,Describe the progression of his kidney function and related prescriptions,paraphrase,complex,simple,p(complex) = 0.42,9.2,0,0,0.0
+trained,Tell me what's changed in this patient's chart over the past decade,paraphrase,complex,complex,p(complex) = 0.53,10.95,0,0,0.0
+trained,Which of my diabetic patients aren't on metformin?,paraphrase,complex,simple,p(complex) = 0.35,10.82,0,0,0.0

@@ -1,0 +1,40 @@
+{"query": "which blood pressure pill is she on", "label": "simple"}
+{"query": "is there an inhaler on his med list?", "label": "simple"}
+{"query": "date of the most recent ER trip", "label": "simple"}
+{"query": "When did they get diagnosed with high cholesterol?", "label": "simple"}
+{"query": "what's the metformin dose", "label": "simple"}
+{"query": "Is the sinus infection resolved?", "label": "simple"}
+{"query": "BP goal per the VA guideline?", "label": "simple"}
+{"query": "What A1c should we aim for in an older adult according to the diabetes guideline?", "label": "simple"}
+{"query": "Does the asthma guideline say anything about spacers?", "label": "simple"}
+{"query": "Which statin dose does the lipid guideline suggest for primary prevention?", "label": "simple"}
+{"query": "How often should spirometry be repeated in COPD?", "label": "simple"}
+{"query": "When was the last flu shot?", "label": "simple"}
+{"query": "Is she pregnant according to the record?", "label": "simple"}
+{"query": "What allergy is documented?", "label": "simple"}
+{"query": "Is lisinopril still being taken?", "label": "simple"}
+{"query": "What was the reason for the 2021 urgent care visit?", "label": "simple"}
+{"query": "Who is the patient's insurer?", "label": "simple"}
+{"query": "When was the kidney problem first noted?", "label": "simple"}
+{"query": "What does the guideline say the first drug for type 2 diabetes should be?", "label": "simple"}
+{"query": "Is home BP monitoring recommended?", "label": "simple"}
+{"query": "Walk me through everything that's happened with his heart over the years", "label": "complex"}
+{"query": "give me a quick rundown of this patient", "label": "complex"}
+{"query": "how did her sugar control evolve after starting metformin", "label": "complex"}
+{"query": "Are there differences between how the asthma and COPD guidelines handle inhaled steroids?", "label": "complex"}
+{"query": "List every patient on a statin who also has diabetes", "label": "complex"}
+{"query": "Is this patient's blood pressure regimen consistent with what the VA recommends, and if not, what differs?", "label": "complex"}
+{"query": "What were all the reasons for ER visits in the last five years?", "label": "complex"}
+{"query": "Put together the patient's medication changes in order", "label": "complex"}
+{"query": "Across our population, what is the most common chronic condition?", "label": "complex"}
+{"query": "Explain how her lung disease and her weight problems interact in the record", "label": "complex"}
+{"query": "Has anything in the care plan changed since the diabetes diagnosis, and why?", "label": "complex"}
+{"query": "What do the lipid and hypertension guidelines both say about lifestyle?", "label": "complex"}
+{"query": "Recap the hospital stays and what led to each", "label": "complex"}
+{"query": "Pull together the respiratory history: diagnoses, inhalers, and urgent visits", "label": "complex"}
+{"query": "Is the patient getting better or worse based on the recent encounters?", "label": "complex"}
+{"query": "For patients with CKD, which blood pressure drugs show up most?", "label": "complex"}
+{"query": "Contrast the treatment targets for older versus younger adults in the diabetes guideline", "label": "complex"}
+{"query": "Describe the progression of his kidney function and related prescriptions", "label": "complex"}
+{"query": "Tell me what's changed in this patient's chart over the past decade", "label": "complex"}
+{"query": "Which of my diabetic patients aren't on metformin?", "label": "complex"}
