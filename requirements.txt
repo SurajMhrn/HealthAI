@@ -24,5 +24,8 @@ openai==3.46.0
 scikit-learn==1.9.1
 joblib==1.6.0
 
+# Phase 4: guardrails (no LangChain needed: it ships its own OpenAI-compatible client)
+nemoguardrails==0.24.1
+
 # Tests
 pytest==9.2.0

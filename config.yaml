@@ -162,3 +162,7 @@ router:
                    immunization, smoking, tobacco, opioid, pain, hydrochlorothiazide, lisinopril, amlodipine,
                    atorvastatin, simvastatin, albuterol, fluticasone, budesonide, prednisone, heart failure,
                    stroke, myocardial infarction, coronary]
+
+guard:
+  enabled: true                 # NeMo Guardrails input/output rails (needs the small tier)
+  drop_suspicious_context: true # drop retrieved chunks that look like prompt injection

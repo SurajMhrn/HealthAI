@@ -30,4 +30,10 @@ def build_answerer(settings: Settings, router_name: str | None = None) -> Answer
     retriever = Retriever.from_settings(settings, with_reranker=settings.generation.retrieval_mode == "hybrid_rerank")
     client = LlmClient(settings)
     router = make_router(router_name or settings.router.default, settings, client, retriever.embedder)
-    return Answerer(settings, retriever, router, client, query_redactor(settings))
+    redactor = query_redactor(settings)
+    guard = None
+    if settings.guard.enabled:
+        from healthrag.guard.rails import Guard
+
+        guard = Guard(settings, redactor)
+    return Answerer(settings, retriever, router, client, redactor, guard)

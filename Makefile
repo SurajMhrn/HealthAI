@@ -8,6 +8,7 @@
 #   make train-router    ->  python -m scripts.train_router
 #   make compare-routers ->  python -m scripts.compare_routers
 #   make ask Q="..."     ->  python -m healthrag.ask "..."
+#   make eval-guard      ->  python -m scripts.eval_guardrails
 #   make test    ->  python -m pytest -q
 
 ifeq ($(OS),Windows_NT)
@@ -16,7 +17,7 @@ else
 PYTHON ?= .venv/bin/python
 endif
 
-.PHONY: venv data ingest index compare router-labels train-router compare-routers ask test
+.PHONY: venv data ingest index compare router-labels train-router compare-routers ask eval-guard test
 
 venv:
 	python3.11 -m venv .venv
@@ -47,6 +48,9 @@ compare-routers:
 
 ask:
 	$(PYTHON) -m healthrag.ask "$(Q)"
+
+eval-guard:
+	$(PYTHON) -m scripts.eval_guardrails
 
 test:
 	$(PYTHON) -m pytest -q

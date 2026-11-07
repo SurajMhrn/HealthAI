@@ -215,6 +215,13 @@ class RouterSettings(BaseModel):
         return _absolute(value)
 
 
+class GuardSettings(BaseModel):
+    """Guardrail switches."""
+
+    enabled: bool
+    drop_suspicious_context: bool
+
+
 class Settings(BaseSettings):
     """All project settings. Use :func:`get_settings` to read them."""
 
@@ -240,6 +247,7 @@ class Settings(BaseSettings):
     llm: LlmSettings
     generation: GenerationSettings
     router: RouterSettings
+    guard: GuardSettings
 
     patient_id_salt: SecretStr | None = None
 

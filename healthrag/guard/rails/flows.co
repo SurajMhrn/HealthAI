@@ -1,0 +1,28 @@
+# Input and output rails. Checks that need no model run first; the LLM self-check runs last.
+
+define bot refuse injection
+  "I can't follow instructions that try to change how I work. Please ask a question about the patient records or clinical guidelines."
+
+define bot refuse identity
+  "I can't help identify patients or recover redacted details. Patient identifiers are removed on purpose."
+
+define bot refuse output identifiers
+  "I can't show that answer because it contained patient identifiers."
+
+define flow check prompt injection
+  $injection = execute check_injection_patterns(text=$user_message)
+  if $injection
+    bot refuse injection
+    stop
+
+define flow check identity reveal
+  $reveal = execute check_identity_reveal(text=$user_message)
+  if $reveal
+    bot refuse identity
+    stop
+
+define flow check output identifiers
+  $leak = execute check_output_identifiers(text=$bot_message)
+  if $leak
+    bot refuse output identifiers
+    stop

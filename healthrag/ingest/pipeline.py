@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from healthrag.config import Settings
+from healthrag.guard.patterns import injection_matches
 from healthrag.ids import chunk_id, patient_id
 from healthrag.ingest.chunking import chunk_document
 from healthrag.ingest.documents import Chunk, Document
@@ -48,6 +49,7 @@ class ProcessedChunk:
             "section": c.section,
             "page": c.page,
             "redactions": dict(sorted(Counter(d.entity_type for d in self.redacted.detections).items())),
+            "injection_flags": injection_matches(self.redacted.text),
         }
 
 

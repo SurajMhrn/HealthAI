@@ -14,14 +14,20 @@ from __future__ import annotations
 import time
 from dataclasses import dataclass, field
 
+from typing import TYPE_CHECKING
+
 from healthrag.config import Settings
 from healthrag.generate.llm import ChatClient, estimated_cost
 from healthrag.generate.prompts import build_messages, extract_citations, is_refusal, normalize_citations
-from healthrag.generate.router import RouteDecision, Router
+from healthrag.generate.router import SIMPLE, RouteDecision, Router
 from healthrag.generate.telemetry import log_query
+from healthrag.guard.patterns import injection_matches
 from healthrag.redact.engine import Redactor
 from healthrag.retrieve.filters import Filters
 from healthrag.retrieve.retriever import Hit, Retriever
+
+if TYPE_CHECKING:
+    from healthrag.guard.rails import Guard
 
 
 @dataclass
@@ -42,15 +48,23 @@ class Answer:
     estimated_cost_usd: float
     timings_ms: dict[str, float] = field(default_factory=dict)
     guardrail: str | None = None
+    dropped_context: list[str] = field(default_factory=list)
 
 
 class Answerer:
     """Ties redaction, routing, retrieval and generation together."""
 
     def __init__(
-        self, settings: Settings, retriever: Retriever, router: Router, client: ChatClient, redactor: Redactor
+        self,
+        settings: Settings,
+        retriever: Retriever,
+        router: Router,
+        client: ChatClient,
+        redactor: Redactor,
+        guard: Guard | None = None,
     ) -> None:
         self.settings = settings
+        self.guard = guard
         self.retriever = retriever
         self.router = router
         self.client = client
@@ -66,13 +80,23 @@ class Answerer:
         safe_question = self.redactor.redact(question).text
         timings["redact_query"] = (time.perf_counter() - started) * 1000
 
+        if self.guard is not None:
+            gate = self.guard.check_input(safe_question)
+            timings["guard_input"] = gate.latency_ms
+            if gate.blocked:
+                return self._blocked(safe_question, gate.message, gate.rail, timings, overall, filters, log)
+
         route = self.router.route(safe_question)
         timings["route"] = route.latency_ms
 
         result = self.retriever.search(safe_question, filters, g.retrieval_mode)
         for stage, ms in result.timings_ms.items():
             timings[f"retrieve_{stage}"] = ms
-        records = [h.record for h in result.hits]
+        hits, dropped = result.hits, []
+        if self.settings.guard.drop_suspicious_context:
+            dropped = [h.chunk_id for h in hits if h.record.get("injection_flags") or injection_matches(h.record["text"])]
+            hits = [h for h in hits if h.chunk_id not in dropped]
+        records = [h.record for h in hits]
 
         if records:
             messages = build_messages(safe_question, records, g.not_found_answer, g.max_context_chars_per_chunk)
@@ -84,12 +108,19 @@ class Answerer:
             raw_answer, model, tokens_in, tokens_out = g.not_found_answer, "none", 0, 0
             timings["generate"] = 0.0
 
+        guardrail = "context injection dropped" if dropped else None
+        if self.guard is not None and records:
+            gate = self.guard.check_output(safe_question, raw_answer)
+            timings["guard_output"] = gate.latency_ms
+            if gate.blocked:
+                raw_answer, guardrail = gate.message, gate.rail
+
         started = time.perf_counter()
         checked = self.redactor.redact(raw_answer)
         timings["redact_answer"] = (time.perf_counter() - started) * 1000
         timings["total"] = (time.perf_counter() - overall) * 1000
 
-        retrieved_ids = {h.chunk_id for h in result.hits}
+        retrieved_ids = {h.chunk_id for h in hits}
         citations = extract_citations(checked.text)
         cost = estimated_cost(self.settings, model, tokens_in, tokens_out) + estimated_cost(
             self.settings, route.model or "", route.tokens_in, route.tokens_out
@@ -99,7 +130,7 @@ class Answerer:
             question=safe_question,
             citations=[c for c in citations if c in retrieved_ids],
             invalid_citations=[c for c in citations if c not in retrieved_ids],
-            hits=result.hits,
+            hits=hits,
             route=route,
             refused=is_refusal(checked.text, g.not_found_answer),
             answer_phi_hits=len(checked.detections),
@@ -108,9 +139,43 @@ class Answerer:
             tokens_out=tokens_out + route.tokens_out,
             estimated_cost_usd=cost,
             timings_ms=timings,
+            guardrail=guardrail,
+            dropped_context=dropped,
         )
         if log:
             log_query(g.telemetry_file, telemetry_record(answer, filters))
+        return answer
+
+    def _blocked(
+        self,
+        question: str,
+        message: str,
+        rail: str | None,
+        timings: dict[str, float],
+        overall: float,
+        filters: Filters | None,
+        log: bool,
+    ) -> Answer:
+        """Answer for a question stopped by an input rail: no retrieval, no generation."""
+        timings["total"] = (time.perf_counter() - overall) * 1000
+        answer = Answer(
+            text=message,
+            question=question,
+            citations=[],
+            invalid_citations=[],
+            hits=[],
+            route=RouteDecision(SIMPLE, "blocked before routing", "guard", 0.0),
+            refused=True,
+            answer_phi_hits=0,
+            model="none",
+            tokens_in=0,
+            tokens_out=0,
+            estimated_cost_usd=0.0,
+            timings_ms=timings,
+            guardrail=rail,
+        )
+        if log:
+            log_query(self.settings.generation.telemetry_file, telemetry_record(answer, filters))
         return answer
 
 
@@ -129,6 +194,7 @@ def telemetry_record(answer: Answer, filters: Filters | None) -> dict:
         "refused": answer.refused,
         "answer_phi_hits": answer.answer_phi_hits,
         "guardrail": answer.guardrail,
+        "dropped_context": answer.dropped_context,
         "tokens_in": answer.tokens_in,
         "tokens_out": answer.tokens_out,
         "estimated_cost_usd": round(answer.estimated_cost_usd, 8),
