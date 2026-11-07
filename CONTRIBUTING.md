@@ -14,7 +14,7 @@ Safe RAG assistant over **synthetic** clinical documents (Synthea patients + pub
 - Every Makefile target also runs as a plain command (`python -m ...`).
 
 ```bash
-python3.11 -m venv .venv && source .venv/bin/activate
+python3.11 -m venv .venv && source .venv/bin/activate   # Windows: py -3.11 -m venv .venv; .venv\Scriptsctivate
 pip install -r requirements.txt              # app
 pip install -r requirements-eval.txt         # app + RAGAS (eval only)
 pytest -q                                    # fast offline tests

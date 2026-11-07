@@ -1,0 +1,8 @@
+# Evaluation extras on top of the app. RAGAS pulls in LangChain as a dependency;
+# project code never imports LangChain.
+-r requirements.txt
+ragas==0.4.3
+# RAGAS 0.4.3 imports langchain_community.chat_models.vertexai, which 0.4 removed.
+langchain-community==0.3.31
+# instructor < 1.11 caps openai below 2; this version works with the app's openai pin.
+instructor==1.17.0

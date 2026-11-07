@@ -1,0 +1,291 @@
+{"query": "What medication is the patient taking for asthma?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for prediabetes?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for COPD?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for acute bronchitis?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for osteoarthritis?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for type 2 diabetes?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for hyperlipidemia?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for anemia?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for chronic kidney disease?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for obesity?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for hypertension?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "What medication is the patient taking for viral sinusitis?", "label": "simple", "source": "template:s_med_for", "split": "train", "status": "draft"}
+{"query": "When was asthma first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was acute bronchitis first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was obesity first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was type 2 diabetes first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was anemia first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was osteoarthritis first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was prediabetes first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was viral sinusitis first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was hypertension first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was chronic kidney disease first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was hyperlipidemia first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "When was COPD first recorded for this patient?", "label": "simple", "source": "template:s_first_recorded", "split": "train", "status": "draft"}
+{"query": "Is the patient's anemia still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's asthma still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's chronic kidney disease still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's acute bronchitis still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's COPD still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's prediabetes still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's hypertension still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's obesity still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's osteoarthritis still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's hyperlipidemia still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's viral sinusitis still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "Is the patient's type 2 diabetes still active?", "label": "simple", "source": "template:s_active", "split": "train", "status": "draft"}
+{"query": "What was the date of the patient's last emergency visit?", "label": "simple", "source": "template:s_last_visit", "split": "train", "status": "draft"}
+{"query": "What was the date of the patient's last inpatient visit?", "label": "simple", "source": "template:s_last_visit", "split": "train", "status": "draft"}
+{"query": "What was the date of the patient's last wellness visit?", "label": "simple", "source": "template:s_last_visit", "split": "train", "status": "draft"}
+{"query": "What was the date of the patient's last urgent care visit?", "label": "simple", "source": "template:s_last_visit", "split": "train", "status": "draft"}
+{"query": "What was the date of the patient's last ambulatory visit?", "label": "simple", "source": "template:s_last_visit", "split": "train", "status": "draft"}
+{"query": "What dose of naproxen was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of albuterol was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of hydrochlorothiazide was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of lisinopril was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of metformin was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of insulin was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of amlodipine was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of fluticasone was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of atorvastatin was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What dose of simvastatin was prescribed?", "label": "simple", "source": "template:s_dose", "split": "train", "status": "draft"}
+{"query": "What does the asthma guideline recommend for when to refer to a specialist?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the COPD guideline recommend for statin intensity?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the hypertension guideline recommend for home monitoring?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the COPD guideline recommend for lifestyle changes?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the type 2 diabetes guideline recommend for inhaler technique?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the type 2 diabetes guideline recommend for statin intensity?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the asthma guideline recommend for inhaler technique?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the hypertension guideline recommend for screening?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the lipid guideline recommend for the treatment target?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the lipid guideline recommend for when to refer to a specialist?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the hypertension guideline recommend for follow-up intervals?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the type 2 diabetes guideline recommend for the treatment target?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the type 2 diabetes guideline recommend for home monitoring?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the hypertension guideline recommend for when to refer to a specialist?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the COPD guideline recommend for first-line drug therapy?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "What does the asthma guideline recommend for the treatment target?", "label": "simple", "source": "template:s_guideline_rec", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of asthma?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of prediabetes?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of hyperlipidemia?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of COPD?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of chronic kidney disease?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of anemia?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of hypertension?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of acute bronchitis?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of osteoarthritis?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of obesity?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of viral sinusitis?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "Does the patient have a record of type 2 diabetes?", "label": "simple", "source": "template:s_has_record", "split": "train", "status": "draft"}
+{"query": "When did the patient start lisinopril?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start amlodipine?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start hydrochlorothiazide?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start naproxen?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start albuterol?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start metformin?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start atorvastatin?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start insulin?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start simvastatin?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "When did the patient start fluticasone?", "label": "simple", "source": "template:s_med_start", "split": "train", "status": "draft"}
+{"query": "Why was lisinopril prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was insulin prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was naproxen prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was hydrochlorothiazide prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was simvastatin prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was fluticasone prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was albuterol prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was amlodipine prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was metformin prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "Why was atorvastatin prescribed?", "label": "simple", "source": "template:s_reason_med", "split": "test", "status": "draft"}
+{"query": "How does the type 2 diabetes guideline define follow-up intervals?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the type 2 diabetes guideline define screening?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the type 2 diabetes guideline define statin intensity?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the hypertension guideline define inhaler technique?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the type 2 diabetes guideline define the treatment target?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the COPD guideline define the treatment target?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the lipid guideline define follow-up intervals?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the hypertension guideline define home monitoring?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the lipid guideline define lifestyle changes?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the COPD guideline define screening?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the COPD guideline define first-line drug therapy?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the COPD guideline define home monitoring?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the hypertension guideline define when to refer to a specialist?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the asthma guideline define first-line drug therapy?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the lipid guideline define inhaler technique?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "How does the COPD guideline define follow-up intervals?", "label": "simple", "source": "template:s_guideline_def", "split": "test", "status": "draft"}
+{"query": "Summarize the patient's history of hyperlipidemia.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of prediabetes.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of anemia.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of obesity.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of acute bronchitis.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of viral sinusitis.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of type 2 diabetes.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of asthma.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of chronic kidney disease.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of COPD.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of hypertension.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Summarize the patient's history of osteoarthritis.", "label": "complex", "source": "template:c_summarize", "split": "train", "status": "draft"}
+{"query": "Compare how viral sinusitis and osteoarthritis were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how asthma and osteoarthritis were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how asthma and obesity were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how prediabetes and hypertension were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how acute bronchitis and prediabetes were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how prediabetes and acute bronchitis were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how prediabetes and asthma were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how chronic kidney disease and type 2 diabetes were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how hyperlipidemia and acute bronchitis were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how anemia and viral sinusitis were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how COPD and type 2 diabetes were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how hyperlipidemia and asthma were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how obesity and anemia were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how COPD and chronic kidney disease were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how viral sinusitis and asthma were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "Compare how chronic kidney disease and acute bronchitis were treated for this patient.", "label": "complex", "source": "template:c_compare_conditions", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for COPD changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for obesity changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for viral sinusitis changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for prediabetes changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for asthma changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for chronic kidney disease changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for hypertension changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for acute bronchitis changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for anemia changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for hyperlipidemia changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for osteoarthritis changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "How has the patient's treatment for type 2 diabetes changed over time?", "label": "complex", "source": "template:c_trend", "split": "train", "status": "draft"}
+{"query": "Which patients have both COPD and asthma?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both anemia and asthma?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both hypertension and viral sinusitis?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both COPD and acute bronchitis?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both viral sinusitis and type 2 diabetes?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both anemia and obesity?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both viral sinusitis and COPD?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both viral sinusitis and obesity?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both asthma and type 2 diabetes?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both acute bronchitis and asthma?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both obesity and chronic kidney disease?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both osteoarthritis and hypertension?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both asthma and osteoarthritis?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both asthma and obesity?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both type 2 diabetes and asthma?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Which patients have both acute bronchitis and viral sinusitis?", "label": "complex", "source": "template:c_multi_patient", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to hyperlipidemia.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to asthma.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to anemia.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to viral sinusitis.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to osteoarthritis.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to hypertension.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to COPD.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to type 2 diabetes.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to chronic kidney disease.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to acute bronchitis.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to obesity.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Give an overview of all encounters related to prediabetes.", "label": "complex", "source": "template:c_overview_encounters", "split": "train", "status": "draft"}
+{"query": "Compare the asthma and lipid guidelines on screening.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the COPD and asthma guidelines on when to refer to a specialist.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the asthma and type 2 diabetes guidelines on when to refer to a specialist.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the asthma and COPD guidelines on inhaler technique.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the lipid and COPD guidelines on follow-up intervals.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the asthma and lipid guidelines on first-line drug therapy.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the asthma and hypertension guidelines on screening.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the COPD and type 2 diabetes guidelines on the treatment target.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the lipid and type 2 diabetes guidelines on lifestyle changes.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the asthma and type 2 diabetes guidelines on home monitoring.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the hypertension and lipid guidelines on first-line drug therapy.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the type 2 diabetes and lipid guidelines on screening.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the hypertension and lipid guidelines on when to refer to a specialist.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the type 2 diabetes and COPD guidelines on home monitoring.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the type 2 diabetes and COPD guidelines on follow-up intervals.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Compare the COPD and type 2 diabetes guidelines on statin intensity.", "label": "complex", "source": "template:c_compare_guidelines", "split": "train", "status": "draft"}
+{"query": "Does the patient's hypertension treatment follow the type 2 diabetes guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's hyperlipidemia treatment follow the COPD guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's asthma treatment follow the COPD guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's type 2 diabetes treatment follow the hypertension guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's prediabetes treatment follow the lipid guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's acute bronchitis treatment follow the hypertension guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's anemia treatment follow the hypertension guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's acute bronchitis treatment follow the type 2 diabetes guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's hyperlipidemia treatment follow the hypertension guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's viral sinusitis treatment follow the lipid guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's chronic kidney disease treatment follow the asthma guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's hyperlipidemia treatment follow the type 2 diabetes guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's hyperlipidemia treatment follow the asthma guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's COPD treatment follow the lipid guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's anemia treatment follow the COPD guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "Does the patient's viral sinusitis treatment follow the COPD guideline recommendations?", "label": "complex", "source": "template:c_adherence", "split": "train", "status": "draft"}
+{"query": "What has happened in the patient's care since 2020?", "label": "complex", "source": "template:c_since_year", "split": "train", "status": "draft"}
+{"query": "What has happened in the patient's care since 2022?", "label": "complex", "source": "template:c_since_year", "split": "train", "status": "draft"}
+{"query": "What has happened in the patient's care since 2015?", "label": "complex", "source": "template:c_since_year", "split": "train", "status": "draft"}
+{"query": "What has happened in the patient's care since 2018?", "label": "complex", "source": "template:c_since_year", "split": "train", "status": "draft"}
+{"query": "How many patients were prescribed simvastatin for hyperlipidemia?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed atorvastatin for type 2 diabetes?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed amlodipine for hyperlipidemia?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed amlodipine for viral sinusitis?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed naproxen for hypertension?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed hydrochlorothiazide for type 2 diabetes?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed metformin for anemia?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed albuterol for osteoarthritis?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed albuterol for asthma?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed amlodipine for anemia?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed insulin for obesity?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed fluticasone for anemia?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed hydrochlorothiazide for asthma?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed amlodipine for chronic kidney disease?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed albuterol for obesity?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "How many patients were prescribed simvastatin for prediabetes?", "label": "complex", "source": "template:c_count_patients", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's osteoarthritis and hyperlipidemia diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's viral sinusitis and anemia diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's type 2 diabetes and viral sinusitis diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's chronic kidney disease and type 2 diabetes diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's osteoarthritis and chronic kidney disease diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's acute bronchitis and prediabetes diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's obesity and anemia diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's chronic kidney disease and COPD diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's viral sinusitis and acute bronchitis diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's osteoarthritis and obesity diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's hypertension and acute bronchitis diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's asthma and chronic kidney disease diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's anemia and obesity diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's COPD and hyperlipidemia diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's obesity and type 2 diabetes diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "Build a timeline of the patient's obesity and hypertension diagnoses and medications.", "label": "complex", "source": "template:c_timeline", "split": "test", "status": "draft"}
+{"query": "which blood pressure pill is she on", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "is there an inhaler on his med list?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "date of the most recent ER trip", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "When did they get diagnosed with high cholesterol?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "what's the metformin dose", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Is the sinus infection resolved?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "BP goal per the VA guideline?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "What A1c should we aim for in an older adult according to the diabetes guideline?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Does the asthma guideline say anything about spacers?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Which statin dose does the lipid guideline suggest for primary prevention?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "How often should spirometry be repeated in COPD?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "When was the last flu shot?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Is she pregnant according to the record?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "What allergy is documented?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Is lisinopril still being taken?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "What was the reason for the 2021 urgent care visit?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Who is the patient's insurer?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "When was the kidney problem first noted?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "What does the guideline say the first drug for type 2 diabetes should be?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Is home BP monitoring recommended?", "label": "simple", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Walk me through everything that's happened with his heart over the years", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "give me a quick rundown of this patient", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "how did her sugar control evolve after starting metformin", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Are there differences between how the asthma and COPD guidelines handle inhaled steroids?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "List every patient on a statin who also has diabetes", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Is this patient's blood pressure regimen consistent with what the VA recommends, and if not, what differs?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "What were all the reasons for ER visits in the last five years?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Put together the patient's medication changes in order", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Across our population, what is the most common chronic condition?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Explain how her lung disease and her weight problems interact in the record", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Has anything in the care plan changed since the diabetes diagnosis, and why?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "What do the lipid and hypertension guidelines both say about lifestyle?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Recap the hospital stays and what led to each", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Pull together the respiratory history: diagnoses, inhalers, and urgent visits", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Is the patient getting better or worse based on the recent encounters?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "For patients with CKD, which blood pressure drugs show up most?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Contrast the treatment targets for older versus younger adults in the diabetes guideline", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Describe the progression of his kidney function and related prescriptions", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Tell me what's changed in this patient's chart over the past decade", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}
+{"query": "Which of my diabetic patients aren't on metformin?", "label": "complex", "source": "paraphrase", "split": "test", "status": "draft"}

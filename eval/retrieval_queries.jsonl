@@ -1,0 +1,13 @@
+{"id": "g1", "query": "What blood pressure target is recommended for adults with hypertension?", "expect": {"source": "va-dod-hypertension"}}
+{"id": "g2", "query": "home blood pressure monitoring to confirm the diagnosis", "expect": {"source": "va-dod-hypertension"}}
+{"id": "g3", "query": "first-line drug treatment for type 2 diabetes", "expect": {"source": "va-dod-type2-diabetes"}}
+{"id": "g4", "query": "HbA1c target range for older adults with diabetes", "expect": {"source": "va-dod-type2-diabetes"}}
+{"id": "g5", "query": "statin therapy for primary prevention of cardiovascular disease", "expect": {"source": "va-dod-lipids"}}
+{"id": "g6", "query": "spirometry to confirm a diagnosis of COPD", "expect": {"source": "va-dod-copd"}}
+{"id": "g7", "query": "triple inhaler therapy to reduce COPD exacerbations", "expect": {"source": "va-dod-copd"}}
+{"id": "g8", "query": "rescue inhaler and asthma action plan", "expect": {"source": "va-dod-asthma"}}
+{"id": "p1", "query": "What medications is the patient taking for hypertension?", "patient_with": "hypertension", "expect": {"section": "Medications", "text": "hypertension"}}
+{"id": "p2", "query": "When was the patient diagnosed with prediabetes?", "patient_with": "prediabetes", "expect": {"section": "Conditions", "text": "prediabetes"}}
+{"id": "p3", "query": "emergency room visits", "patient_with": "emergency room admission", "expect": {"section": "Encounters", "text": "emergency"}}
+{"id": "p4", "query": "encounters during 2020", "patient_with": "encounter", "date_from": "2020", "date_to": "2020", "expect": {"section": "Encounters", "text": "2020-"}}
+{"id": "c1", "query": "chronic kidney disease", "doc_type": "patient_record", "expect": {"text": "kidney disease"}}

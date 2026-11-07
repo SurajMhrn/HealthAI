@@ -1,0 +1,39 @@
+# docker compose up            -> API on :8000, UI on :8501
+# docker compose --profile ollama up   -> also a local Ollama (set SMALL_BASE_URL=http://ollama:11434/v1)
+#
+# Build the data first on the host (make data ingest index), then mount it read-only.
+services:
+  api:
+    build: .
+    env_file: .env
+    ports: ["8000:8000"]
+    volumes:
+      - ./data/processed:/app/data/processed:ro
+      - ./data/raw:/app/data/raw:ro
+      - ./indexes:/app/indexes:ro
+      - ./logs:/app/logs
+      - hf-cache:/app/.cache
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  ui:
+    build: .
+    command: ["streamlit", "run", "ui/app.py", "--server.address=0.0.0.0", "--server.port=8501"]
+    environment:
+      API_URL: http://api:8000
+    ports: ["8501:8501"]
+    depends_on: [api]
+
+  ollama:
+    image: ollama/ollama:0.40.15
+    profiles: ["ollama"]
+    ports: ["11434:11434"]
+    volumes:
+      - ollama:/root/.ollama
+
+volumes:
+  hf-cache:
+  ollama:

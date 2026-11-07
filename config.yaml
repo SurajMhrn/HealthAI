@@ -1,0 +1,183 @@
+# Non-secret settings. Secrets and endpoints go in .env (template: .env.example).
+# Environment variables override these values. Nested keys use a double underscore,
+# e.g. CHUNKING__SIZE=800 or REDACTION__SCORE_THRESHOLD=0.5.
+
+paths:
+  raw_synthea: data/raw/synthea
+  raw_synthea_sample: data/raw/synthea_sample
+  raw_guidelines: data/raw/guidelines
+  processed: data/processed
+  chunks_file: data/processed/chunks.jsonl
+  redaction_report: reports/redaction_report.md
+  vendor: vendor
+
+chunking:
+  size: 1000      # characters of chunk body (a one-line header is added on top)
+  overlap: 150    # characters of trailing lines repeated from the previous chunk
+
+patient_id:
+  length: 16      # hex characters kept from HMAC-SHA256(PATIENT_ID_SALT, synthea uuid)
+
+downloads:
+  user_agent: "Mozilla/5.0 (compatible; healthrag-data/0.1)"
+  timeout_seconds: 120
+  attempts: 5          # GitHub's release download host sometimes drops connections
+
+synthea:
+  version: v4.0.0
+  jar_url: https://github.com/synthetichealth/synthea/releases/download/v4.0.0/synthea-with-dependencies.jar
+  jar_sha256: ed43c20ad40ba5c3bc724503a5af032715fe3c491620b766148e7c2361e6ecc1
+  min_java_version: 17
+  seed: 42
+  clinician_seed: 42
+  reference_date: "20261101"   # fixed "today" so ages and dates don't drift between runs
+  population: 100              # living patients; Synthea also exports anyone who died
+  state: Massachusetts
+
+# Synthea's own pre-generated sample population, used alongside the generated one.
+# The URL always points at the latest build, so the sha256 pins the exact file.
+synthea_sample:
+  url: https://synthetichealth.github.io/synthea-sample-data/downloads/latest/synthea_sample_data_csv_latest.zip
+  sha256: 990d52064037bbf83d10f13163da428964b56ae673b7f39bf549d78c1e7eda16
+  description: Synthea sample data (CSV), build of 2026-10-22, 111 patients
+
+# Which patient populations ingest reads: generated (scripts/get_synthea.py),
+# sample (scripts/get_synthea_sample.py), or both.
+patient_datasets: [generated, sample]
+
+# Reviewed list of public guideline PDFs. All are U.S. federal government works.
+guidelines:
+  sources:
+    - name: va-dod-hypertension-2026
+      title: VA/DoD Clinical Practice Guideline for Diagnosis and Management of Hypertension in Primary Care
+      short_title: Hypertension guideline (VA/DoD 2026)
+      publisher: U.S. Department of Veterans Affairs and Department of Defense
+      license: Public domain in the U.S. (federal government work, 17 U.S.C. 105)
+      published: "2026-08"   # month on the title page
+      url: https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/CD/htn/HTN-CPG_2026-Guideline_final_20261027.pdf
+      sha256: a19db25aebde16eb54c1784174633a9a915084e6eaf078c056a32d0726ceb56a
+    - name: va-dod-type2-diabetes-2023
+      title: VA/DoD Clinical Practice Guideline for the Management of Type 2 Diabetes Mellitus
+      short_title: Type 2 diabetes guideline (VA/DoD 2023)
+      publisher: U.S. Department of Veterans Affairs and Department of Defense
+      license: Public domain in the U.S. (federal government work, 17 U.S.C. 105)
+      published: "2023-05"   # month on the title page
+      url: https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/CD/diabetes/VADOD-Diabetes-CPG_Final_508.pdf
+      sha256: cc5f24ac1b38560d00a2e85e5361d4f741ea2b7be9f7df354c6104b385836a5d
+    - name: va-dod-lipids-2025
+      title: VA/DoD Clinical Practice Guideline on Lipid Management for Cardiovascular Disease Risk Reduction
+      short_title: Lipids guideline (VA/DoD 2025)
+      publisher: U.S. Department of Veterans Affairs and Department of Defense
+      license: Public domain in the U.S. (federal government work, 17 U.S.C. 105)
+      published: "2025-12"   # month on the title page
+      url: https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/CD/lipids/Lipids-CPG_2025-Guideline_final_20260106.pdf
+      sha256: 2cf05fab73dd52241d51624440597248d0fecc0d471a81eba02945f6bf0c585c
+    - name: va-dod-copd-2026
+      title: VA/DoD Clinical Practice Guideline for the Management of Chronic Obstructive Pulmonary Disease
+      short_title: COPD guideline (VA/DoD 2026)
+      publisher: U.S. Department of Veterans Affairs and Department of Defense
+      license: Public domain in the U.S. (federal government work, 17 U.S.C. 105)
+      published: "2026-09"   # month on the title page
+      url: https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/CD/copd/COPD-CPG_2026-CPG_final_20261007.pdf
+      sha256: 6669b15b6c0e6bac141295e32a9c4aac50d8c32640730d1fc09700905091c8a7
+    - name: va-dod-asthma-2025
+      title: VA/DoD Clinical Practice Guideline for the Primary Care Management of Asthma
+      short_title: Asthma guideline (VA/DoD 2025)
+      publisher: U.S. Department of Veterans Affairs and Department of Defense
+      license: Public domain in the U.S. (federal government work, 17 U.S.C. 105)
+      published: "2025-03"   # month on the title page
+      url: https://www.healthquality.va.gov/HEALTHQUALITY/guidelines/CD/asthma/Asthma-CPG_2025-Guideline_final_20250528.pdf
+      sha256: f1f12280bf08350383dc7b3ff0b5cb08f8acc37a43f30339d064eaeb3d57d89a
+
+pdf:
+  heading_max_chars: 90         # longer lines are never treated as headings
+  boilerplate_min_share: 0.3    # a line on >= 30% of pages is a running header/footer
+  boilerplate_min_pages: 5      # only strip headers/footers in documents this long
+
+redaction:
+  spacy_model: en_core_web_lg
+  language: en
+  score_threshold: 0.3          # Presidio's phone recognizer scores 0.4 without context
+  batch_size: 32
+  report_samples: 5
+
+retrieval:
+  index_dir: indexes
+  embedding_model: BAAI/bge-small-en-v1.5          # MIT licence
+  embedding_revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+  # bge v1.5 recommends this prefix on queries (not on passages) for retrieval.
+  query_instruction: "Represent this sentence for searching relevant passages: "
+  rerank_model: BAAI/bge-reranker-base             # MIT licence
+  rerank_revision: 2cfc18c9415c912f9d8155881c133215df768a70
+  embed_batch_size: 64
+  rerank_batch_size: 16
+  max_seq_length: 512
+  candidates_per_retriever: 50   # top-N taken from BM25 and from FAISS before fusion
+  rrf_k: 60                      # reciprocal rank fusion constant
+  rerank_top_n: 20               # fused candidates sent to the cross-encoder
+  final_k: 5                     # chunks returned
+
+# Hosted models (endpoints and keys live in .env). All three run on Groq; see PLAN.md.
+llm:
+  small_model: openai/gpt-oss-20b
+  large_model: openai/gpt-oss-120b
+  judge_model: qwen/qwen3.8-27b        # a different model family from the large tier
+  temperature: 0.0
+  max_tokens: 1024                     # includes the gpt-oss models' reasoning tokens
+  timeout_seconds: 60
+  max_retries: 8                       # Groq's free tier throttles per minute; the client waits and retries
+  cache_dir: .cache/llm                # responses cached on disk, keyed by the full request
+  # Extra request fields per model. gpt-oss models reason before answering; "low" keeps it short.
+  extra_params:
+    openai/gpt-oss-20b: {reasoning_effort: low}
+    openai/gpt-oss-120b: {reasoning_effort: low}
+  # Reference prices in USD per million tokens, from Groq's model docs on 2026-11-07.
+  # Used only for estimated cost; free-tier calls cost $0 actual.
+  prices:
+    openai/gpt-oss-20b: {input: 0.075, output: 0.30}
+    openai/gpt-oss-120b: {input: 0.15, output: 0.60}
+    qwen/qwen3.8-27b: {input: 0.80, output: 4.00}
+
+generation:
+  retrieval_mode: hybrid_rerank
+  not_found_answer: "This is not in the documents."
+  max_context_chars_per_chunk: 1200
+  telemetry_file: logs/queries.jsonl
+
+router:
+  default: rules                       # rules | rules_llm | trained
+  labels_file: eval/router_labels.jsonl
+  model_file: indexes/router.joblib
+  seed: 13
+  logistic_c: 1.0
+  # Rules: any of these words or phrases makes a question "complex".
+  complex_phrases: [summarize, summary, summarise, overview, compare, comparison, versus, " vs ", trend, trends,
+                    over time, changed, history of, all patients, which patients, how many patients, across,
+                    both, timeline, progression, since]
+  multi_entity_threshold: 2            # this many distinct clinical terms also make it complex
+  clinical_terms: [hypertension, blood pressure, diabetes, prediabetes, hba1c, glucose, insulin, metformin,
+                   hyperlipidemia, cholesterol, ldl, statin, lipid, asthma, copd, emphysema, inhaler, spirometry,
+                   bronchitis, sinusitis, pharyngitis, otitis, kidney, ckd, obesity, bmi, anemia, osteoarthritis,
+                   sprain, fracture, pregnancy, contraception, depression, anxiety, covid, influenza, vaccine,
+                   immunization, smoking, tobacco, opioid, pain, hydrochlorothiazide, lisinopril, amlodipine,
+                   atorvastatin, simvastatin, albuterol, fluticasone, budesonide, prednisone, heart failure,
+                   stroke, myocardial infarction, coronary]
+
+guard:
+  enabled: true                 # NeMo Guardrails input/output rails (needs the small tier)
+  drop_suspicious_context: true # drop retrieved chunks that look like prompt injection
+
+evaluation:
+  golden_file: eval/golden.jsonl
+  results_dir: eval/results
+  bootstrap_samples: 2000
+  seed: 7
+  subsets_file: eval/subsets.json
+  # The five runs from PLAN.md. generator: tiered uses the router; small/large force one tier.
+  # items: all = the whole golden set; comparison = the fixed 40-item subset (free-tier quota).
+  configs:
+    dense_tiered: {retrieval_mode: dense, generator: tiered, items: comparison}
+    hybrid_tiered: {retrieval_mode: hybrid, generator: tiered, items: comparison}
+    rerank_tiered: {retrieval_mode: hybrid_rerank, generator: tiered, items: all}
+    rerank_small: {retrieval_mode: hybrid_rerank, generator: small, items: comparison}
+    rerank_large: {retrieval_mode: hybrid_rerank, generator: large, items: comparison}
