@@ -9,6 +9,11 @@
 #   make compare-routers ->  python -m scripts.compare_routers
 #   make ask Q="..."     ->  python -m healthrag.ask "..."
 #   make eval-guard      ->  python -m scripts.eval_guardrails
+#   make golden          ->  python -m scripts.make_golden
+#   make eval-run        ->  python -m eval.run            (all five configs, judge-free metrics)
+#   make eval-ragas      ->  python -m eval.ragas_run      (needs requirements-eval.txt)
+#   make eval-report     ->  python -m eval.report
+#   make eval            ->  regression config + RAGAS + python -m eval.regress
 #   make test    ->  python -m pytest -q
 
 ifeq ($(OS),Windows_NT)
@@ -17,7 +22,7 @@ else
 PYTHON ?= .venv/bin/python
 endif
 
-.PHONY: venv data ingest index compare router-labels train-router compare-routers ask eval-guard test
+.PHONY: venv data ingest index compare router-labels train-router compare-routers ask eval-guard golden eval-run eval-ragas eval-report eval test
 
 venv:
 	python3.11 -m venv .venv
@@ -51,6 +56,23 @@ ask:
 
 eval-guard:
 	$(PYTHON) -m scripts.eval_guardrails
+
+golden:
+	$(PYTHON) -m scripts.make_golden
+
+eval-run:
+	$(PYTHON) -m eval.run
+
+eval-ragas:
+	$(PYTHON) -m eval.ragas_run
+
+eval-report:
+	$(PYTHON) -m eval.report
+
+eval:
+	$(PYTHON) -m eval.run --config rerank_tiered
+	$(PYTHON) -m eval.ragas_run --config rerank_tiered
+	$(PYTHON) -m eval.regress
 
 test:
 	$(PYTHON) -m pytest -q

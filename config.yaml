@@ -125,7 +125,7 @@ llm:
   temperature: 0.0
   max_tokens: 1024                     # includes the gpt-oss models' reasoning tokens
   timeout_seconds: 60
-  max_retries: 3
+  max_retries: 8                       # Groq's free tier throttles per minute; the client waits and retries
   cache_dir: .cache/llm                # responses cached on disk, keyed by the full request
   # Extra request fields per model. gpt-oss models reason before answering; "low" keeps it short.
   extra_params:
@@ -166,3 +166,18 @@ router:
 guard:
   enabled: true                 # NeMo Guardrails input/output rails (needs the small tier)
   drop_suspicious_context: true # drop retrieved chunks that look like prompt injection
+
+evaluation:
+  golden_file: eval/golden.jsonl
+  results_dir: eval/results
+  bootstrap_samples: 2000
+  seed: 7
+  subsets_file: eval/subsets.json
+  # The five runs from PLAN.md. generator: tiered uses the router; small/large force one tier.
+  # items: all = the whole golden set; comparison = the fixed 40-item subset (free-tier quota).
+  configs:
+    dense_tiered: {retrieval_mode: dense, generator: tiered, items: comparison}
+    hybrid_tiered: {retrieval_mode: hybrid, generator: tiered, items: comparison}
+    rerank_tiered: {retrieval_mode: hybrid_rerank, generator: tiered, items: all}
+    rerank_small: {retrieval_mode: hybrid_rerank, generator: small, items: comparison}
+    rerank_large: {retrieval_mode: hybrid_rerank, generator: large, items: comparison}

@@ -20,7 +20,7 @@ torch==2.15.0+cpu
 sentence-transformers==6.2.0
 
 # Phase 3: generation and routing
-openai==3.46.0
+openai==2.9.0
 scikit-learn==1.9.1
 joblib==1.6.0
 

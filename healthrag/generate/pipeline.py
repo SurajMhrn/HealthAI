@@ -65,6 +65,7 @@ class Answerer:
     ) -> None:
         self.settings = settings
         self.guard = guard
+        self.retrieval_mode = settings.generation.retrieval_mode
         self.retriever = retriever
         self.router = router
         self.client = client
@@ -89,7 +90,7 @@ class Answerer:
         route = self.router.route(safe_question)
         timings["route"] = route.latency_ms
 
-        result = self.retriever.search(safe_question, filters, g.retrieval_mode)
+        result = self.retriever.search(safe_question, filters, self.retrieval_mode)
         for stage, ms in result.timings_ms.items():
             timings[f"retrieve_{stage}"] = ms
         hits, dropped = result.hits, []

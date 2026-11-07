@@ -86,7 +86,7 @@ class LlmClient:
         for tier, url, key in (
             ("small", settings.small_base_url, settings.small_api_key),
             ("large", settings.large_base_url, settings.large_api_key),
-            ("judge", settings.judge_base_url, settings.judge_api_key),
+            ("judge", *settings.judge_endpoint()),
         ):
             if tier == "large" and settings.large_provider == "azure":
                 if not (settings.azure_openai_endpoint and settings.azure_openai_api_key):

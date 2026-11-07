@@ -171,6 +171,18 @@ class TrainedRouter:
         return [str(label) for label in self.model.predict(vectors)]
 
 
+class FixedRouter:
+    """Always the same tier; used to evaluate the small and large models on their own."""
+
+    def __init__(self, label: str) -> None:
+        self.label = label
+        self.name = f"fixed_{TIER_FOR_LABEL[label]}"
+
+    def route(self, question: str) -> RouteDecision:
+        """Return the fixed tier."""
+        return RouteDecision(self.label, "fixed tier", self.name, 0.0)
+
+
 def make_rules_router(settings: Settings) -> RulesRouter:
     """The rules router configured from settings."""
     r = settings.router

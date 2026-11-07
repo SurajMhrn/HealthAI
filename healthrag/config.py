@@ -222,6 +222,30 @@ class GuardSettings(BaseModel):
     drop_suspicious_context: bool
 
 
+class EvalConfig(BaseModel):
+    """One evaluated pipeline configuration."""
+
+    retrieval_mode: Literal["dense", "bm25", "hybrid", "hybrid_rerank"]
+    generator: Literal["tiered", "small", "large"]
+    items: Literal["all", "comparison"] = "all"
+
+
+class EvaluationSettings(BaseModel):
+    """Golden-set evaluation options."""
+
+    golden_file: Path
+    results_dir: Path
+    subsets_file: Path
+    bootstrap_samples: int
+    seed: int
+    configs: dict[str, EvalConfig]
+
+    @field_validator("golden_file", "results_dir", "subsets_file")
+    @classmethod
+    def _make_absolute(cls, value: Path) -> Path:
+        return _absolute(value)
+
+
 class Settings(BaseSettings):
     """All project settings. Use :func:`get_settings` to read them."""
 
@@ -248,6 +272,7 @@ class Settings(BaseSettings):
     generation: GenerationSettings
     router: RouterSettings
     guard: GuardSettings
+    evaluation: EvaluationSettings
 
     patient_id_salt: SecretStr | None = None
 
@@ -275,6 +300,12 @@ class Settings(BaseSettings):
     ) -> tuple[PydanticBaseSettingsSource, ...]:
         """Env vars first, then .env, then config.yaml."""
         return (init_settings, env_settings, dotenv_settings, YamlConfigSettingsSource(settings_cls))
+
+    def judge_endpoint(self) -> tuple[str | None, SecretStr | None]:
+        """The judge's endpoint and key; without JUDGE_* settings it shares the large tier's endpoint."""
+        if self.judge_base_url and self.judge_api_key:
+            return self.judge_base_url, self.judge_api_key
+        return self.large_base_url, self.large_api_key
 
     def patient_csv_dirs(self) -> dict[str, Path]:
         """CSV folder for each enabled patient dataset, keyed by dataset name."""

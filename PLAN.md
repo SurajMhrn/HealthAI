@@ -127,6 +127,14 @@ config.yaml  .env.example  requirements.txt  requirements-eval.txt  Makefile
 - **Known weakness: off-topic.** Only 2-3 of 6 off-topic prompts are blocked. An earlier self-check prompt blocked a normal record lookup ("What medications is the patient taking for asthma?"); after it was rewritten to list allowed lookups, it became lenient on off-topic requests. It was not tuned further against the evaluation prompts; a separate development set is needed first.
 - **Run-to-run variance.** The self-check isn't deterministic even at temperature 0 (one prompt flipped between runs), so the evaluation repeats the input rails three times and reports every run.
 
+## Changes made during Phase 5
+- **Free-tier quota sets the evaluation's size.** Groq's free tier caps each model at 200,000 tokens per rolling day (confirmed from a 429 reply: "tokens per day (TPD): Limit 200000"). One golden question costs about 1.6K generation tokens, so all five configs on all 98 items would need several days. The main config (`rerank_tiered`) runs on all 98 items; the four comparison configs run on a fixed, stratified 40-item subset (`eval/subsets.json`), so comparisons stay paired on the same questions.
+- **RAGAS on a 20-item subset** (inside the comparison subset): faithfulness and answer relevancy only. Context precision and recall are replaced by judge-free retrieval metrics against the golden supports (hit@5, MRR, support coverage), which cost nothing.
+- **Runs wait out rate limits.** The runners read the provider's "try again in ..." and sleep, and every model reply is cached, so a multi-day evaluation finishes unattended and never pays twice.
+- **RAGAS 0.4.3 pins.** It imports `langchain_community.chat_models.vertexai`, which langchain-community 0.4 removed, so `requirements-eval.txt` pins langchain-community 0.3.31. Its default `instructor` caps `openai` below 2, so instructor 1.17.0 is pinned and the app moved to `openai` 2.9.0 (the newest 2.x, which both sides accept).
+- **Judge endpoint.** Without `JUDGE_*` settings the judge uses the large tier's endpoint (Groq), with the judge model from `config.yaml`.
+- **Answer matching** normalises Unicode dashes: gpt-oss writes non-breaking hyphens ("GLP‑1"), which made correct answers look wrong.
+
 ## Risks and open items
 - **Free-tier limits:** a full RAGAS pass makes roughly 9 judge calls per question, so 5 configs × about 100 questions comes to several thousand calls. Plan: count the calls first, then spread runs over days, use a smaller subset, or use a cheap paid judge. LLM responses are cached on disk, keyed by the full prompt, so re-runs don't spend quota again.
 - **NeMo Guardrails 0.24.1** no longer lists LangChain as a dependency. Its OpenAI-compatible model connector needs to be verified to work without it.
