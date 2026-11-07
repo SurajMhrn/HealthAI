@@ -134,9 +134,19 @@ def build(settings: Settings) -> str:
         "the items both configs answered.",
     ]
 
+    missing = [name for name in configs if not runs[name]]
+    if missing:
+        done = [name for name in configs if runs[name]]
+        lines += [
+            "",
+            f"**Status: partial.** {len(done)} of {len(configs)} configs have results "
+            f"({', '.join(f'`{n}`' for n in done) or 'none'}). Not run yet: {', '.join(f'`{n}`' for n in missing)}. "
+            "Comparisons and the judge-noise measurement need at least two configs, so they are empty until the "
+            "remaining runs finish (`python -m eval.run`, `python -m eval.ragas_run`, then this script again).",
+        ]
     lines += [
         "",
-        "## Judge-free metrics (all golden items)",
+        "## Judge-free metrics",
         "",
         "Hit@5 and MRR@5: rank of the first retrieved chunk that carries a golden support (source + supporting "
         "text). Answer match: the answer contains the expected facts. Refusal accuracy: unanswerable items "
@@ -175,7 +185,7 @@ def build(settings: Settings) -> str:
         "",
         "## RAGAS (fixed subset)",
         "",
-        f"Faithfulness and answer relevancy on the fixed, stratified subset in `eval/ragas_subset.json` "
+        f"Faithfulness and answer relevancy on the fixed, stratified subset in `eval/subsets.json` "
         f"(n = {len(subset)} answerable items). The free judge tier allows about 200K tokens a day, so the "
         "full set is not judged; context quality is covered by the judge-free metrics above.",
         "",
