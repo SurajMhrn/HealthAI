@@ -14,6 +14,8 @@
 #   make eval-ragas      ->  python -m eval.ragas_run      (needs requirements-eval.txt)
 #   make eval-report     ->  python -m eval.report
 #   make eval            ->  regression config + RAGAS + python -m eval.regress
+#   make api             ->  uvicorn healthrag.api:app --port 8000
+#   make ui              ->  streamlit run ui/app.py
 #   make test    ->  python -m pytest -q
 
 ifeq ($(OS),Windows_NT)
@@ -22,7 +24,7 @@ else
 PYTHON ?= .venv/bin/python
 endif
 
-.PHONY: venv data ingest index compare router-labels train-router compare-routers ask eval-guard golden eval-run eval-ragas eval-report eval test
+.PHONY: venv data ingest index compare router-labels train-router compare-routers ask eval-guard golden eval-run eval-ragas eval-report eval api ui test
 
 venv:
 	python3.11 -m venv .venv
@@ -73,6 +75,12 @@ eval:
 	$(PYTHON) -m eval.run --config rerank_tiered
 	$(PYTHON) -m eval.ragas_run --config rerank_tiered
 	$(PYTHON) -m eval.regress
+
+api:
+	$(PYTHON) -m uvicorn healthrag.api:app --port 8000
+
+ui:
+	$(PYTHON) -m streamlit run ui/app.py
 
 test:
 	$(PYTHON) -m pytest -q

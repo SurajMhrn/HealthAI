@@ -135,6 +135,10 @@ config.yaml  .env.example  requirements.txt  requirements-eval.txt  Makefile
 - **Judge endpoint.** Without `JUDGE_*` settings the judge uses the large tier's endpoint (Groq), with the judge model from `config.yaml`.
 - **Answer matching** normalises Unicode dashes: gpt-oss writes non-breaking hyphens ("GLP‑1"), which made correct answers look wrong.
 
+## Changes made during Phase 6
+- **API and UI.** FastAPI (`/ask`, `/chunks/{id}`, `/patients`, `/health`) and a Streamlit chat whose citations expand to the redacted source chunk, with a side panel for route, latency, estimated cost and guardrail status. Both were run locally and checked with a guideline question and an injection attempt (blocked by the injection rail).
+- **Docker not run.** Docker isn't installed on the development laptop, so the Dockerfile and compose file are written but untested.
+
 ## Risks and open items
 - **Free-tier limits:** a full RAGAS pass makes roughly 9 judge calls per question, so 5 configs × about 100 questions comes to several thousand calls. Plan: count the calls first, then spread runs over days, use a smaller subset, or use a cheap paid judge. LLM responses are cached on disk, keyed by the full prompt, so re-runs don't spend quota again.
 - **NeMo Guardrails 0.24.1** no longer lists LangChain as a dependency. Its OpenAI-compatible model connector needs to be verified to work without it.
