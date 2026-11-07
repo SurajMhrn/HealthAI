@@ -21,9 +21,11 @@ from functools import lru_cache
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException
+from openai import RateLimitError
 from pydantic import BaseModel, Field
 
 from healthrag.config import get_settings
+from healthrag.evaluation.ratelimit import retry_after_seconds
 from healthrag.generate.factory import build_answerer
 from healthrag.generate.pipeline import Answerer
 from healthrag.retrieve.filters import Filters
@@ -88,7 +90,12 @@ def health() -> dict[str, str]:
 def ask(request: AskRequest) -> AskResponse:
     """Answer a question from the documents."""
     filters = Filters(request.doc_type, request.patient_id, request.date_from, request.date_to)
-    a = answerer().answer(request.question, filters)
+    try:
+        a = answerer().answer(request.question, filters)
+    except RateLimitError as error:
+        retry = retry_after_seconds(error)
+        wait = f" Try again in about {retry:.0f} s."
+        raise HTTPException(503, "The model provider's rate limit was reached." + wait) from error
     cited = set(a.citations)
     sources = [
         Citation(

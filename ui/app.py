@@ -50,8 +50,7 @@ def show_answer(result: dict) -> None:
 def show_panel(result: dict) -> None:
     """Route, latency, cost and guardrail status for the last answer."""
     st.subheader("Last answer")
-    st.markdown(f"**Route:** {result['route']}  
-`{result['model']}`")
+    st.markdown(f"**Route:** {result['route']}  \n`{result['model']}`")
     st.caption(f"{result['router']}: {result['route_reason']}")
     st.markdown(f"**Latency:** {result['latency_ms'].get('total', 0):.0f} ms")
     st.markdown(f"**Estimated cost:** ${result['estimated_cost_usd']:.6f}")
@@ -101,6 +100,9 @@ with chat:
         with st.chat_message("assistant"), st.spinner("Retrieving and answering..."):
             try:
                 result = ask(question, filters)
+            except httpx.HTTPStatusError as error:
+                detail = error.response.json().get("detail") if "json" in error.response.headers.get("content-type", "") else None
+                st.error(detail or f"Request failed: {error}")
             except httpx.HTTPError as error:
                 st.error(f"Request failed: {error}")
             else:
